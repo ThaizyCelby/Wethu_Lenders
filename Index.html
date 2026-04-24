@@ -1,1 +1,1549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Wethu Micro Lenders - Fast, reliable loans in Atteridgeville, Pretoria. NCR compliant. Apply online today.">
+    <meta name="theme-color" content="#1e5631">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Wethu Micro Lenders | Fast & Reliable Loans</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <style>
+        :root {
+            --primary-green: #1e5631;
+            --primary-green-dark: #163d23;
+            --light-green: #e8f5e9;
+            --accent-green: #2e7d32;
+            --text-dark: #1a1a1a;
+            --text-gray: #636e72;
+            --white: #ffffff;
+            --bg-light: #f9fafb;
+            --bg-cream: #fdfcf9;
+            --border-light: #e8e8e8;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.12);
+            --shadow-xl: 0 30px 60px rgba(0, 0, 0, 0.15);
+            --radius-sm: 8px;
+            --radius-md: 14px;
+            --radius-lg: 20px;
+            --radius-xl: 28px;
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--white);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ========== NAVIGATION ========== */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 6%;
+            background: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid transparent;
+            transition: var(--transition);
+            box-shadow: 0 1px 0 transparent;
+        }
+
+        nav.scrolled {
+            border-bottom: 1px solid var(--border-light);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: var(--primary-green);
+            line-height: 1.2;
+            text-decoration: none;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .logo-icon {
+            background: var(--primary-green);
+            color: white;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        .logo-text .brand {
+            font-size: 1.2rem;
+            font-weight: 800;
+            letter-spacing: -0.3px;
+        }
+        .logo-text .sub {
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--accent-green);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.93rem;
+            padding: 10px 16px;
+            border-radius: 25px;
+            transition: var(--transition-fast);
+            white-space: nowrap;
+            position: relative;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary-green);
+            background: var(--light-green);
+        }
+
+        .btn-apply-nav {
+            background: var(--primary-green);
+            color: white !important;
+            padding: 11px 22px !important;
+            border-radius: 25px !important;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition-fast);
+            white-space: nowrap;
+            box-shadow: 0 4px 14px rgba(30, 86, 49, 0.3);
+        }
+
+        .btn-apply-nav:hover {
+            background: var(--primary-green-dark);
+            box-shadow: 0 6px 20px rgba(30, 86, 49, 0.4);
+            transform: translateY(-1px);
+        }
+
+        /* Hamburger */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            z-index: 1001;
+            padding: 8px;
+            background: none;
+            border: none;
+        }
+
+        .hamburger span {
+            width: 26px;
+            height: 2.5px;
+            background: var(--text-dark);
+            border-radius: 3px;
+            transition: var(--transition-fast);
+            display: block;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        .mobile-menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 998;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .mobile-menu-overlay.active {
+            opacity: 1;
+        }
+
+        /* ========== HERO SECTION ========== */
+        .hero {
+            display: flex;
+            align-items: center;
+            padding: 50px 6% 80px 6%;
+            background: linear-gradient(175deg, #ffffff 60%, #e8f5e9 60% 100%);
+            position: relative;
+            overflow: hidden;
+            min-height: 85vh;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -15%;
+            width: 55%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(30, 86, 49, 0.04) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            flex: 1;
+            position: relative;
+            z-index: 2;
+            max-width: 550px;
+        }
+        .hero-image {
+            flex: 1;
+            text-align: right;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--light-green);
+            color: var(--primary-green);
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            letter-spacing: 0.3px;
+        }
+
+        .hero-badge i {
+            margin-right: 6px;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.2rem, 5vw, 3.6rem);
+            line-height: 1.15;
+            color: var(--text-dark);
+            margin-bottom: 18px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-content h1 span {
+            color: var(--primary-green);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-content h1 span::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: rgba(30, 86, 49, 0.12);
+            border-radius: 4px;
+            z-index: -1;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            margin-bottom: 30px;
+            max-width: 420px;
+            line-height: 1.7;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 14px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--primary-green);
+            color: white;
+            padding: 15px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition-fast);
+            box-shadow: 0 8px 25px rgba(30, 86, 49, 0.3);
+            border: none;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-green-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(30, 86, 49, 0.4);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary-green);
+            color: var(--primary-green);
+            padding: 15px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition-fast);
+            cursor: pointer;
+            white-space: nowrap;
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-green);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .ncr-tag {
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .ncr-tag i {
+            color: var(--primary-green);
+            font-size: 1.1rem;
+        }
+
+        .hero-image img {
+            width: 85%;
+            max-width: 500px;
+            border-radius: 24px;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .floating-badge {
+            position: absolute;
+            bottom: 8%;
+            right: 5%;
+            background: var(--primary-green);
+            color: white;
+            padding: 16px 20px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: var(--shadow-lg);
+            animation: floatBadge 3s ease-in-out infinite;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .floating-badge i {
+            font-size: 1.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @keyframes floatBadge {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        /* ========== SECTION STYLES ========== */
+        .section-padding {
+            padding: 80px 6%;
+            text-align: center;
+        }
+
+        .section-label {
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--accent-green);
+            margin-bottom: 10px;
+        }
+
+        .section-title {
+            margin-bottom: 16px;
+            font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            color: var(--text-dark);
+        }
+
+        .section-subtitle {
+            color: var(--text-gray);
+            max-width: 550px;
+            margin: 0 auto 50px;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* ========== FEATURES ========== */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .feature-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 14px;
+            padding: 28px 20px;
+            border-radius: var(--radius-lg);
+            transition: var(--transition);
+            background: var(--white);
+            border: 1px solid transparent;
+        }
+
+        .feature-item:hover {
+            border-color: var(--border-light);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-4px);
+        }
+
+        .feature-icon {
+            background: var(--light-green);
+            color: var(--primary-green);
+            width: 60px;
+            height: 60px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+            transition: var(--transition);
+        }
+
+        .feature-item:hover .feature-icon {
+            background: var(--primary-green);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .feature-item h4 { font-weight: 600; font-size: 1rem; }
+        .feature-item p { font-size: 0.85rem; color: var(--text-gray); line-height: 1.5; }
+
+        /* ========== LOAN OPTIONS ========== */
+        .loan-options { background: var(--bg-light); }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .option-card {
+            background: white;
+            padding: 36px 28px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border: 1px solid var(--border-light);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .option-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--primary-green);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .option-card:hover::before { transform: scaleX(1); }
+        .option-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+
+        .option-card .card-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: var(--light-green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 18px;
+            font-size: 1.6rem;
+            color: var(--primary-green);
+            transition: var(--transition);
+        }
+
+        .option-card:hover .card-icon { background: var(--primary-green); color: white; }
+        .option-card h3 { margin-bottom: 8px; font-size: 1.2rem; font-weight: 700; }
+        .option-card p { color: var(--text-gray); font-size: 0.9rem; line-height: 1.6; margin-bottom: 16px; }
+
+        .btn-small {
+            display: inline-block;
+            background: transparent;
+            color: var(--primary-green);
+            padding: 10px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border: 2px solid var(--primary-green);
+            transition: var(--transition-fast);
+            cursor: pointer;
+        }
+
+        .btn-small:hover { background: var(--primary-green); color: white; }
+
+        /* ========== REQUIREMENTS ========== */
+        .requirements-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            text-align: left;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .req-content { flex: 1; }
+        .req-image { flex: 1; }
+
+        .req-list { display: flex; gap: 28px; margin: 28px 0; flex-wrap: wrap; }
+
+        .req-item {
+            text-align: center;
+            background: var(--light-green);
+            padding: 22px 18px;
+            border-radius: var(--radius-md);
+            flex: 1;
+            min-width: 100px;
+            transition: var(--transition);
+        }
+
+        .req-item:hover { background: var(--primary-green); color: white; transform: translateY(-3px); }
+        .req-item i { font-size: 1.8rem; color: var(--primary-green); margin-bottom: 8px; display: block; transition: var(--transition); }
+        .req-item:hover i { color: white; }
+        .req-item p { font-weight: 600; font-size: 0.85rem; }
+
+        .req-image img { width: 100%; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); }
+
+        /* ========== APPLICATION SECTION ========== */
+        .apply-section { background: var(--bg-cream); position: relative; overflow: hidden; }
+
+        .apply-section::before {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            right: -100px;
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            background: rgba(30, 86, 49, 0.03);
+            pointer-events: none;
+        }
+
+        .apply-card {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+            position: relative;
+            z-index: 1;
+        }
+
+        .apply-card-header {
+            background: var(--primary-green);
+            color: white;
+            padding: 24px 28px;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .apply-card-header i { font-size: 1.5rem; }
+        .apply-card-header h3 { font-size: 1.2rem; font-weight: 600; margin: 0; }
+
+        .apply-card-body { padding: 20px; }
+        .apply-card-body iframe { width: 100%; height: 520px; border: none; border-radius: var(--radius-sm); background: #fafafa; }
+
+        .apply-card-footer {
+            padding: 16px 20px;
+            background: #fafafa;
+            border-top: 1px solid var(--border-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .apply-card-footer span { font-size: 0.85rem; color: var(--text-gray); }
+
+        .btn-external {
+            background: var(--primary-green);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: var(--transition-fast);
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-external:hover { background: var(--primary-green-dark); transform: translateY(-1px); }
+
+        .apply-iframe-placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 200px;
+            background: #f5f5f5;
+            border-radius: var(--radius-sm);
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 20px;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .apply-iframe-placeholder i { font-size: 2rem; color: #ccc; }
+
+        /* ========== TESTIMONIALS ========== */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .test-card {
+            background: white;
+            padding: 28px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-light);
+            text-align: left;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .test-card:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); }
+
+        .test-card .quote-icon { font-size: 2rem; color: var(--light-green); margin-bottom: 10px; display: block; }
+
+        .test-card p { font-size: 0.93rem; color: var(--text-dark); line-height: 1.7; margin-bottom: 12px; font-style: italic; }
+        .test-card strong { display: block; font-size: 0.9rem; color: var(--primary-green); }
+
+        .stars { color: #f1c40f; margin-top: 6px; font-size: 0.85rem; }
+
+        /* ========== REVIEW SECTION ========== */
+        .review-section { background: var(--white); }
+
+        .review-form-container {
+            max-width: 600px;
+            margin: 0 auto 40px;
+            background: white;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            padding: 30px;
+            text-align: left;
+            border: 1px solid var(--border-light);
+        }
+
+        .star-rating {
+            display: flex;
+            gap: 6px;
+            font-size: 1.8rem;
+            color: #ccc;
+            cursor: pointer;
+            margin-bottom: 16px;
+        }
+
+        .star-rating .star {
+            transition: color 0.2s ease, transform 0.2s ease;
+            user-select: none;
+        }
+
+        .star-rating .star.active,
+        .star-rating .star:hover,
+        .star-rating .star.hover {
+            color: #f1c40f;
+            transform: scale(1.15);
+        }
+
+        .review-form-group {
+            margin-bottom: 16px;
+        }
+
+        .review-form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+        }
+
+        .review-form-group input,
+        .review-form-group textarea {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-sm);
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: var(--transition-fast);
+            background: #fafafa;
+            resize: vertical;
+        }
+
+        .review-form-group input:focus,
+        .review-form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-green);
+            box-shadow: 0 0 0 3px rgba(30, 86, 49, 0.1);
+            background: white;
+        }
+
+        .btn-submit-review {
+            background: var(--primary-green);
+            color: white;
+            border: none;
+            padding: 13px 28px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition-fast);
+            box-shadow: 0 4px 14px rgba(30, 86, 49, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-submit-review:hover {
+            background: var(--primary-green-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 22px rgba(30, 86, 49, 0.4);
+        }
+
+        .user-reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .review-card {
+            background: white;
+            padding: 24px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-light);
+            text-align: left;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .review-card:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); }
+
+        .review-card .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .review-card .review-name {
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .review-card .review-date {
+            font-size: 0.75rem;
+            color: var(--text-gray);
+        }
+
+        .review-card .review-text {
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            line-height: 1.6;
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        .review-card .review-stars {
+            color: #f1c40f;
+            font-size: 0.9rem;
+            margin-top: 8px;
+        }
+
+        /* ========== CONTACT SECTION ========== */
+        .contact-section { background: var(--primary-green); color: white; position: relative; overflow: hidden; }
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: -60px;
+            right: -60px;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.04);
+            pointer-events: none;
+        }
+
+        .contact-section .section-title { color: white; }
+        .contact-section .section-subtitle { color: rgba(255, 255, 255, 0.8); }
+        .contact-section .section-label { color: rgba(255, 255, 255, 0.7); }
+
+        .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 900px; margin: 0 auto; }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: var(--radius-lg);
+            padding: 28px 20px;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            text-decoration: none;
+            color: white;
+            display: block;
+            cursor: pointer;
+        }
+
+        .contact-card:hover { background: rgba(255, 255, 255, 0.16); transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,0.2); }
+        .contact-card i { font-size: 2.2rem; margin-bottom: 12px; display: block; color: #a5d6a7; }
+        .contact-card h4 { font-weight: 700; margin-bottom: 4px; font-size: 1rem; }
+        .contact-card span { font-size: 0.85rem; opacity: 0.8; word-break: break-all; }
+
+        .contact-card.phone-card {
+            background: rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            grid-column: 1 / -1;
+            max-width: 400px;
+            margin: 10px auto 0;
+            padding: 32px 24px;
+        }
+
+        .contact-card.phone-card i { font-size: 2.8rem; animation: pulsePhone 2s ease-in-out infinite; }
+        .contact-card.phone-card span { font-size: 1.3rem; font-weight: 700; letter-spacing: 0.5px; opacity: 1; }
+
+        @keyframes pulsePhone {
+            0%, 100% { transform: scale(1); }
+            15% { transform: scale(1.1); }
+            30% { transform: scale(1); }
+            45% { transform: scale(1.08); }
+            60% { transform: scale(1); }
+        }
+
+        /* ========== FOOTER CTA ========== */
+        .footer-cta {
+            background: var(--primary-green-dark);
+            color: white;
+            padding: 50px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 30px 30px 0 0;
+            margin: 0 20px;
+            gap: 30px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-cta h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; }
+        .footer-cta p { opacity: 0.85; margin-top: 4px; }
+
+        .btn-white {
+            background: white;
+            color: var(--primary-green);
+            padding: 15px 36px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition-fast);
+            white-space: nowrap;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-white:hover { transform: translateY(-2px); box-shadow: 0 14px 35px rgba(0,0,0,0.3); background: #f0f0f0; }
+
+        footer {
+            background: #0d0d0d;
+            color: #aaa;
+            padding: 40px 6% 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-info { display: flex; gap: 24px; flex-wrap: wrap; align-items: center; }
+        .footer-info a, .footer-info span {
+            color: #ccc;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition-fast);
+            cursor: pointer;
+        }
+        .footer-info a:hover, .footer-info span:hover { color: white; }
+        .footer-info i { color: var(--accent-green); font-size: 0.9rem; }
+        .footer-bottom { color: #666; font-size: 0.8rem; }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            z-index: 999;
+            background: #25D366;
+            color: white;
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            box-shadow: 0 8px 28px rgba(37, 211, 102, 0.4);
+            transition: var(--transition-fast);
+            text-decoration: none;
+            animation: bounceIn 0.6s ease-out;
+        }
+
+        .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 12px 35px rgba(37, 211, 102, 0.5); }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0); opacity: 0; }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 96px;
+            right: 28px;
+            z-index: 999;
+            background: white;
+            color: var(--primary-green);
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-light);
+            cursor: pointer;
+            transition: var(--transition-fast);
+            opacity: 0;
+            pointer-events: none;
+            text-decoration: none;
+        }
+
+        .back-to-top.visible { opacity: 1; pointer-events: auto; }
+        .back-to-top:hover { background: var(--primary-green); color: white; transform: translateY(-3px); }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 1024px) {
+            .features-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+            .options-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+            .testimonial-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+            .contact-grid { grid-template-columns: repeat(2, 1fr); }
+            .hero { flex-direction: column; text-align: center; padding: 30px 6% 60px; min-height: auto; }
+            .hero-content { max-width: 100%; margin-bottom: 40px; order: 1; }
+            .hero-content p { max-width: 100%; margin-left: auto; margin-right: auto; }
+            .hero-btns { justify-content: center; }
+            .ncr-tag { justify-content: center; }
+            .hero-image { text-align: center; order: 0; margin-bottom: 20px; }
+            .hero-image img { width: 60%; max-width: 350px; }
+            .floating-badge { bottom: auto; top: 10px; right: 5%; font-size: 0.8rem; padding: 12px 16px; }
+            .requirements-container { flex-direction: column; text-align: center; }
+            .req-content { text-align: center; }
+            .req-list { justify-content: center; }
+            .footer-cta { flex-direction: column; text-align: center; border-radius: 24px 24px 0 0; margin: 0 10px; }
+            footer { flex-direction: column; text-align: center; }
+            .footer-info { justify-content: center; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0; right: -100%;
+                width: 280px;
+                height: 100vh;
+                background: white;
+                flex-direction: column;
+                padding: 90px 30px 30px;
+                gap: 6px;
+                box-shadow: -5px 0 30px rgba(0,0,0,0.15);
+                transition: right 0.35s cubic-bezier(0.4,0,0.2,1);
+                z-index: 999;
+                align-items: stretch;
+            }
+            .nav-links.active { right: 0; }
+            .nav-links a { display: block; padding: 14px 18px; border-radius: 12px; font-size: 1rem; text-align: left; }
+            .btn-apply-nav { text-align: center; margin-top: 8px; border-radius: 12px !important; }
+            .hamburger { display: flex; }
+            .mobile-menu-overlay { display: block; pointer-events: none; }
+            .mobile-menu-overlay.active { pointer-events: auto; opacity: 1; }
+            .features-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+            .feature-item { padding: 20px 14px; }
+            .options-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+            .testimonial-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+            .user-reviews-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+            .contact-grid { grid-template-columns: 1fr; max-width: 350px; margin: 0 auto; }
+            .contact-card.phone-card { max-width: 100%; }
+            .hero-content h1 { font-size: 1.8rem; }
+            .hero-image img { width: 75%; }
+            .floating-badge { position: relative; top: auto; right: auto; margin: 16px auto 0; justify-content: center; max-width: 280px; }
+            .section-padding { padding: 50px 5%; }
+            .req-list { flex-direction: column; gap: 14px; }
+            .apply-card-body iframe { height: 400px; }
+            .whatsapp-float { width: 50px; height: 50px; font-size: 1.4rem; bottom: 20px; right: 16px; }
+            .back-to-top { bottom: 80px; right: 16px; width: 36px; height: 36px; font-size: 0.85rem; }
+            footer { padding: 30px 5% 24px; }
+            .footer-info { gap: 14px; font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==================== NAVIGATION ==================== -->
+    <nav id="navbar">
+        <a href="#home" class="logo" aria-label="Wethu Micro Lenders Home">
+            <div class="logo-icon"><i class="fas fa-chart-line"></i></div>
+            <div class="logo-text">
+                <span class="brand">WETHU</span>
+                <span class="sub">Micro Lenders</span>
+            </div>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home" class="active" data-nav="home">Home</a></li>
+            <li><a href="#about" data-nav="about">About Us</a></li>
+            <li><a href="#loans" data-nav="loans">Loans</a></li>
+            <li><a href="#requirements" data-nav="requirements">Requirements</a></li>
+            <li><a href="#apply" data-nav="apply">Apply</a></li>
+            <li><a href="#reviews" data-nav="reviews">Reviews</a></li>
+            <li><a href="#contact" data-nav="contact">Contact</a></li>
+            <li><a href="#apply" class="btn-apply-nav">Apply Now</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="mobile-menu-overlay" id="overlay"></div>
+    </nav>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-badge"><i class="fas fa-check-circle"></i> NCR Registered Lender</div>
+            <h1>Fast, Reliable Loans<br><span>When You Need Them Most</span></h1>
+            <p>Simple application. Quick response. Trusted service. We're here to help you move forward with confidence.</p>
+            <div class="hero-btns">
+                <a href="#apply" class="btn-primary">Apply Now <i class="fas fa-chevron-right"></i></a>
+                <a href="#requirements" class="btn-outline">View Requirements</a>
+            </div>
+            <div class="ncr-tag"><i class="fas fa-shield-alt"></i> NCR Compliant | Regulated & Trusted</div>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=600" alt="Happy customer" loading="eager">
+            <div class="floating-badge">
+                <i class="fas fa-check-circle"></i>
+                <span>Loans that help you<br><strong>move forward.</strong></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FEATURES SECTION ==================== -->
+    <section class="section-padding" id="about">
+        <span class="section-label">Why Choose Us</span>
+        <h2 class="section-title">Why Choose Wethu Micro Lenders?</h2>
+        <p class="section-subtitle">We're committed to providing transparent, fast, and friendly financial services you can trust.</p>
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+                <h4>Fast Approval</h4>
+                <p>We process your application quickly so you get the funds when you need them.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                <h4>Transparent Fees</h4>
+                <p>No hidden costs. What we say is exactly what you pay — always.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fas fa-medal"></i></div>
+                <h4>NCR Compliant</h4>
+                <p>Fully registered and compliant with all National Credit Regulator regulations.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fas fa-heart"></i></div>
+                <h4>Friendly Service</h4>
+                <p>We treat every client with dignity, respect, and personalised care.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== LOAN OPTIONS ==================== -->
+    <section class="section-padding loan-options" id="loans">
+        <span class="section-label">Our Services</span>
+        <h2 class="section-title">Our Loan Options</h2>
+        <p class="section-subtitle">Flexible solutions designed to meet your unique financial needs.</p>
+        <div class="options-grid">
+            <div class="option-card">
+                <div class="card-icon"><i class="far fa-clock"></i></div>
+                <h3>Short-Term Loans</h3>
+                <p>Quick cash for your immediate needs with flexible repayment options.</p>
+                <a href="#apply" class="btn-small">Apply Now</a>
+            </div>
+            <div class="option-card">
+                <div class="card-icon"><i class="fas fa-bell"></i></div>
+                <h3>Emergency Loans</h3>
+                <p>Unexpected expenses? We're here to help when you need it most.</p>
+                <a href="#apply" class="btn-small">Apply Now</a>
+            </div>
+            <div class="option-card">
+                <div class="card-icon"><i class="fas fa-wallet"></i></div>
+                <h3>Salary-Based Loans</h3>
+                <p>Loans tailored to your salary cycle. Affordable repayments structured around your payday.</p>
+                <a href="#apply" class="btn-small">Apply Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== REQUIREMENTS ==================== -->
+    <section class="section-padding" id="requirements">
+        <span class="section-label">Eligibility</span>
+        <h2 class="section-title">Basic Requirements</h2>
+        <p class="section-subtitle">Getting started is simple. Here's what you'll need.</p>
+        <div class="requirements-container">
+            <div class="req-content">
+                <div class="req-list">
+                    <div class="req-item"><i class="far fa-id-card"></i><p>South African ID</p></div>
+                    <div class="req-item"><i class="fas fa-file-invoice-dollar"></i><p>Proof of Income</p></div>
+                    <div class="req-item"><i class="fas fa-university"></i><p>Active Bank Account</p></div>
+                </div>
+                <p style="color: var(--text-gray); margin-bottom: 20px;">Additional documents may be required.</p>
+                <a href="#contact" class="btn-outline">Contact Us for Details</a>
+            </div>
+            <div class="req-image">
+                <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&q=80&w=600" alt="Requirements" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== APPLICATION SECTION ==================== -->
+    <section class="section-padding apply-section" id="apply">
+        <span class="section-label">Get Started</span>
+        <h2 class="section-title">Apply for a Loan</h2>
+        <p class="section-subtitle">Fill in the application form below.</p>
+        <div class="apply-card">
+            <div class="apply-card-header"><i class="fas fa-edit"></i><h3>Online Application Form</h3></div>
+            <div class="apply-card-body" id="applyCardBody">
+                <div class="apply-iframe-placeholder" id="applyPlaceholder">
+                    <i class="fas fa-file-alt"></i>
+                    <p><strong>Google Forms Application</strong></p>
+                    <p style="font-size:0.8rem;">The application form will appear here once the link is configured.</p>
+                </div>
+                <iframe id="googleFormIframe" src="" style="display:none;" title="Loan Application Form" allow="camera; microphone; fullscreen"></iframe>
+            </div>
+            <div class="apply-card-footer">
+                <span>Prefer to apply in a new tab?</span>
+                <a href="#" class="btn-external" id="btnOpenForm" target="_blank" rel="noopener noreferrer">Open Application Form <i class="fas fa-external-link-alt"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TESTIMONIALS ==================== -->
+    <section class="section-padding loan-options" id="testimonials">
+        <span class="section-label">Testimonials</span>
+        <h2 class="section-title">What Our Clients Say</h2>
+        <p class="section-subtitle">Real feedback from people we've helped.</p>
+        <div class="testimonial-grid">
+            <div class="test-card">
+                <span class="quote-icon"><i class="fas fa-quote-left"></i></span>
+                <p>"Wethu Micro Lenders helped me when I needed urgent cash. The process was so quick and easy!"</p>
+                <strong>- Thabo M.</strong>
+                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            </div>
+            <div class="test-card">
+                <span class="quote-icon"><i class="fas fa-quote-left"></i></span>
+                <p>"Great service and friendly staff. I got my loan the same day!"</p>
+                <strong>- Nomsa K.</strong>
+                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            </div>
+            <div class="test-card">
+                <span class="quote-icon"><i class="fas fa-quote-left"></i></span>
+                <p>"Transparent terms and no hidden fees. I will definitely use their services again."</p>
+                <strong>- Sipho D.</strong>
+                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== REVIEWS SECTION (Interactive) ==================== -->
+    <section class="section-padding review-section" id="reviews">
+        <span class="section-label">Leave Feedback</span>
+        <h2 class="section-title">Rate & Review Our Service</h2>
+        <p class="section-subtitle">We value your opinion! Share your experience with others.</p>
+
+        <!-- Review Form -->
+        <div class="review-form-container">
+            <div class="review-form-group">
+                <label>Your Rating</label>
+                <div class="star-rating" id="starRating">
+                    <span class="star" data-value="1"><i class="fas fa-star"></i></span>
+                    <span class="star" data-value="2"><i class="fas fa-star"></i></span>
+                    <span class="star" data-value="3"><i class="fas fa-star"></i></span>
+                    <span class="star" data-value="4"><i class="fas fa-star"></i></span>
+                    <span class="star" data-value="5"><i class="fas fa-star"></i></span>
+                </div>
+            </div>
+            <div class="review-form-group">
+                <label for="reviewName">Your Name</label>
+                <input type="text" id="reviewName" placeholder="Enter your name" required>
+            </div>
+            <div class="review-form-group">
+                <label for="reviewText">Your Review</label>
+                <textarea id="reviewText" rows="4" placeholder="Tell us about your experience..." required></textarea>
+            </div>
+            <button class="btn-submit-review" id="submitReview"><i class="fas fa-paper-plane"></i> Submit Review</button>
+        </div>
+
+        <!-- User Reviews Display -->
+        <div class="user-reviews-grid" id="userReviewsContainer">
+            <!-- Dynamically filled from localStorage -->
+        </div>
+    </section>
+
+    <!-- ==================== CONTACT SECTION ==================== -->
+    <section class="section-padding contact-section" id="contact">
+        <span class="section-label">Get In Touch</span>
+        <h2 class="section-title">Contact Us</h2>
+        <p class="section-subtitle">We're here to help. Reach out to us anytime.</p>
+        <div class="contact-grid">
+            <a href="tel:0723248511" class="contact-card phone-card">
+                <i class="fas fa-phone-alt"></i>
+                <h4>Call Us Now</h4>
+                <span>072 324 8511</span>
+                <p style="font-size:0.8rem;opacity:0.7;margin-top:6px;">Tap to call — we're ready to assist</p>
+            </a>
+            <a href="https://wa.me/27723248511?text=Hi%2C%20I%27m%20contacting%20you%20from%20the%20Wethu%20Micro%20Lenders%20website." target="_blank" rel="noopener noreferrer" class="contact-card">
+                <i class="fab fa-whatsapp"></i><h4>WhatsApp</h4><span>Chat with us</span>
+            </a>
+            <a href="mailto:info@wethumicrolenders.co.za" class="contact-card">
+                <i class="far fa-envelope"></i><h4>Email Us</h4><span>info@wethumicrolenders.co.za</span>
+            </a>
+            <a href="https://maps.google.com/?q=Atteridgeville+Pretoria" target="_blank" rel="noopener noreferrer" class="contact-card">
+                <i class="fas fa-map-marker-alt"></i><h4>Visit Us</h4><span>Atteridgeville, Pretoria</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER CTA ==================== -->
+    <div class="footer-cta">
+        <div><h2>Ready to get started?</h2><p>Apply in under 5 minutes and get a response fast.</p></div>
+        <a href="#apply" class="btn-white">Start Your Application <i class="fas fa-chevron-right"></i></a>
+    </div>
+
+    <footer>
+        <div class="footer-info">
+            <a href="tel:0723248511"><i class="fas fa-phone-alt"></i> 072 324 8511</a>
+            <a href="https://wa.me/27723248511?text=Hi%2C%20I%27m%20contacting%20you%20from%20the%20Wethu%20Micro%20Lenders%20website." target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            <a href="mailto:info@wethumicrolenders.co.za"><i class="far fa-envelope"></i> info@wethumicrolenders.co.za</a>
+            <a href="https://maps.google.com/?q=Atteridgeville+Pretoria" target="_blank" rel="noopener noreferrer"><i class="fas fa-map-marker-alt"></i> Atteridgeville, Pretoria</a>
+        </div>
+        <div class="footer-bottom">&copy; 2024 Wethu Micro Lenders. All rights reserved. | NCR Compliant</div>
+    </footer>
+
+    <a href="https://wa.me/27723248511?text=Hi%2C%20I%27m%20contacting%20you%20from%20the%20Wethu%20Micro%20Lenders%20website." target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    <a href="#home" class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fas fa-chevron-up"></i></a>
+
+    <script>
+        (function() {
+            // Google Forms link (replace with yours)
+            const GOOGLE_FORMS_LINK = 'https://docs.google.com/forms/d/e/1FAIpQLScDSlDVA0xAsfd08DlZCnIqAxvNzESDAhr_BjN6AlbRy8XPuw/viewform?usp=publish-editor';
+            const googleFormIframe = document.getElementById('googleFormIframe');
+            const applyPlaceholder = document.getElementById('applyPlaceholder');
+            const btnOpenForm = document.getElementById('btnOpenForm');
+            const isFormsLinkConfigured = GOOGLE_FORMS_LINK && GOOGLE_FORMS_LINK !== 'YOUR_GOOGLE_FORMS_LINK_HERE' && GOOGLE_FORMS_LINK.includes('google.com/forms');
+
+            if (isFormsLinkConfigured) {
+                const embedUrl = GOOGLE_FORMS_LINK.includes('?') ? GOOGLE_FORMS_LINK + '&embedded=true' : GOOGLE_FORMS_LINK + '?embedded=true';
+                googleFormIframe.src = embedUrl;
+                googleFormIframe.style.display = 'block';
+                if (applyPlaceholder) applyPlaceholder.style.display = 'none';
+                btnOpenForm.href = GOOGLE_FORMS_LINK;
+            } else {
+                if (applyPlaceholder) applyPlaceholder.style.display = 'flex';
+                googleFormIframe.style.display = 'none';
+                btnOpenForm.href = '#apply';
+                btnOpenForm.addEventListener('click', function(e) { e.preventDefault(); alert('Please configure the Google Forms link.'); });
+            }
+
+            // Navigation & scroll
+            const navbar = document.getElementById('navbar');
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('navLinks');
+            const overlay = document.getElementById('overlay');
+            const backToTop = document.getElementById('backToTop');
+            const allNavLinks = document.querySelectorAll('.nav-links a[data-nav]');
+            const allAnchorLinks = document.querySelectorAll('a[href^="#"]');
+
+            function openMenu() {
+                navLinks.classList.add('active');
+                hamburger.classList.add('active');
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+            function closeMenu() {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+            hamburger.addEventListener('click', () => { navLinks.classList.contains('active') ? closeMenu() : openMenu(); });
+            overlay.addEventListener('click', closeMenu);
+            navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => { if (navLinks.classList.contains('active')) closeMenu(); }));
+            document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && navLinks.classList.contains('active')) closeMenu(); });
+
+            allAnchorLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href.startsWith('#') && href.length > 1) {
+                        const target = document.querySelector(href);
+                        if (target) {
+                            e.preventDefault();
+                            const navHeight = navbar.offsetHeight;
+                            window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - navHeight - 10, behavior: 'smooth' });
+                        }
+                    }
+                });
+            });
+
+            function updateActiveNavLink() {
+                const sections = document.querySelectorAll('section[id], [id="apply"], [id="contact"], [id="reviews"]');
+                const scrollPos = window.scrollY + navbar.offsetHeight + 100;
+                let current = 'home';
+                sections.forEach(section => {
+                    const top = section.offsetTop;
+                    const height = section.offsetHeight;
+                    if (scrollPos >= top && scrollPos < top + height) current = section.getAttribute('id');
+                });
+                allNavLinks.forEach(link => { link.classList.remove('active'); if (link.getAttribute('data-nav') === current) link.classList.add('active'); });
+            }
+
+            function updateNavbar() { navbar.classList.toggle('scrolled', window.scrollY > 20); }
+            function updateBackToTop() { backToTop.classList.toggle('visible', window.scrollY > 500); }
+
+            let scrollTicking = false;
+            window.addEventListener('scroll', () => {
+                if (!scrollTicking) {
+                    requestAnimationFrame(() => { updateNavbar(); updateActiveNavLink(); updateBackToTop(); scrollTicking = false; });
+                    scrollTicking = true;
+                }
+            });
+            updateNavbar(); updateActiveNavLink(); updateBackToTop();
+
+            window.addEventListener('resize', () => { if (window.innerWidth > 768 && navLinks.classList.contains('active')) closeMenu(); });
+            hamburger.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); hamburger.click(); } });
+
+            // ==================== REVIEW SYSTEM ====================
+            const STORAGE_KEY = 'wethu_reviews';
+            const starRatingContainer = document.getElementById('starRating');
+            const stars = starRatingContainer.querySelectorAll('.star');
+            const reviewName = document.getElementById('reviewName');
+            const reviewText = document.getElementById('reviewText');
+            const submitBtn = document.getElementById('submitReview');
+            const userReviewsContainer = document.getElementById('userReviewsContainer');
+            let selectedRating = 0;
+
+            // Load reviews from localStorage
+            function loadReviews() {
+                const stored = localStorage.getItem(STORAGE_KEY);
+                return stored ? JSON.parse(stored) : [];
+            }
+
+            function saveReviews(reviews) {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(reviews));
+            }
+
+            function renderReviews() {
+                const reviews = loadReviews();
+                userReviewsContainer.innerHTML = '';
+                if (reviews.length === 0) {
+                    userReviewsContainer.innerHTML = '<p style="text-align:center; color: var(--text-gray); grid-column:1/-1;">No reviews yet. Be the first to share your experience!</p>';
+                    return;
+                }
+                reviews.slice().reverse().forEach(review => {
+                    const card = document.createElement('div');
+                    card.className = 'review-card';
+                    const starsHtml = Array.from({ length: 5 }, (_, i) => i < review.rating ? '<i class="fas fa-star"></i>' : '<i class="far fa-star"></i>').join('');
+                    card.innerHTML = `
+                        <div class="review-header">
+                            <span class="review-name">${escapeHTML(review.name)}</span>
+                            <span class="review-date">${review.date}</span>
+                        </div>
+                        <div class="review-text">"${escapeHTML(review.text)}"</div>
+                        <div class="review-stars">${starsHtml}</div>
+                    `;
+                    userReviewsContainer.appendChild(card);
+                });
+            }
+
+            function escapeHTML(str) {
+                return str.replace(/[&<>"']/g, function(m) {
+                    if (m === '&') return '&amp;';
+                    if (m === '<') return '&lt;';
+                    if (m === '>') return '&gt;';
+                    if (m === '"') return '&quot;';
+                    if (m === "'") return '&#039;';
+                    return m;
+                });
+            }
+
+            // Star rating interaction
+            stars.forEach(star => {
+                star.addEventListener('click', function() {
+                    selectedRating = parseInt(this.getAttribute('data-value'));
+                    updateStarDisplay(selectedRating);
+                });
+                star.addEventListener('mouseenter', function() {
+                    const val = parseInt(this.getAttribute('data-value'));
+                    updateStarDisplay(val, true);
+                });
+                star.addEventListener('mouseleave', function() {
+                    updateStarDisplay(selectedRating);
+                });
+            });
+
+            function updateStarDisplay(rating, isHover = false) {
+                stars.forEach(star => {
+                    const val = parseInt(star.getAttribute('data-value'));
+                    if (rating >= val) {
+                        star.classList.add('active');
+                    } else {
+                        star.classList.remove('active');
+                    }
+                });
+            }
+
+            // Submit review
+            submitBtn.addEventListener('click', () => {
+                const name = reviewName.value.trim();
+                const text = reviewText.value.trim();
+                if (!name || !text || selectedRating === 0) {
+                    alert('Please fill out all fields and select a rating.');
+                    return;
+                }
+                const newReview = {
+                    name: name,
+                    text: text,
+                    rating: selectedRating,
+                    date: new Date().toLocaleDateString('en-ZA', { year: 'numeric', month: 'short', day: 'numeric' })
+                };
+                const reviews = loadReviews();
+                reviews.push(newReview);
+                saveReviews(reviews);
+                // Clear form
+                reviewName.value = '';
+                reviewText.value = '';
+                selectedRating = 0;
+                updateStarDisplay(0);
+                renderReviews();
+                // Smooth scroll to reviews
+                document.getElementById('reviews').scrollIntoView({ behavior: 'smooth' });
+            });
+
+            // Initial render
+            renderReviews();
+        })();
+    </script>
+</body>
+</html>
