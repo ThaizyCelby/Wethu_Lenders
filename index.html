@@ -1,17 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Basic document setup -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- SEO description -->
-    <meta name="description" content="Wethu Micro Lenders – Fast loans from R500 to R3000 in Atteridgeville. NCR registered NCRCP22737. Approval within 24 hours, no hidden fees.">
-
-    <!-- Prevent browser theme mismatch -->
+    <!-- SEO -->
+    <meta name="description" content="Wethu Micro Lenders – Fast, secure loans from R500 to R3000 in Atteridgeville. NCR registered NCRCP22737. Approval within 24 hours. No hidden fees. Apply online in 2 minutes.">
     <meta name="theme-color" content="#0d4a6b">
-
-    <!-- Mobile app behavior -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
@@ -19,13 +14,7 @@
     <link rel="icon" type="image/jpeg" href="image.jpeg">
     <link rel="apple-touch-icon" href="image.jpeg">
 
-    <!--
-        CONTENT SECURITY POLICY (CSP)
-        - No 'unsafe-inline' for scripts or styles (all CSS/JS external)
-        - Only allows images from self and Unsplash
-        - Only allows Google Forms in iframes
-        - Fonts allowed from Google Fonts and Font Awesome CDN
-    -->
+    <!-- Content Security Policy -->
     <meta http-equiv="Content-Security-Policy"
           content="
           default-src 'self';
@@ -39,36 +28,41 @@
           base-uri 'self';
           ">
 
-    <!-- Prevent MIME‑type sniffing -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
-
-    <!-- Referrer policy -->
     <meta name="referrer" content="strict-origin-when-cross-origin">
 
-    <!-- Open Graph (social sharing preview) -->
-    <meta property="og:title" content="Wethu Micro Lenders | Fast Loans R500-R3000">
-    <meta property="og:description" content="NCR registered (NCRCP22737). Quick approval, no hidden fees. Apply online now.">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Wethu Micro Lenders | Fast Loans R500–R3000 – NCRCP22737">
+    <meta property="og:description" content="NCR Registered Credit Provider. Fast approval, no hidden fees. Apply online in 2 minutes.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://wethumicrolenders.co.za/">
     <meta property="og:image" content="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=600">
 
-    <title>Wethu Micro Lenders | Fast Loans R500-R3000 – NCRCP22737</title>
+    <title>Wethu Micro Lenders | Fast & Secure Loans R500–R3000 – NCRCP22737</title>
 
-    <!-- External CSS only (required for strict CSP) -->
+    <!-- External Stylesheets -->
     <link rel="stylesheet" href="styles.css">
-
-    <!-- External fonts (allowed by CSP) -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <!-- Font Awesome icons (allowed by CSP) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <!-- Navigation -->
+    <!-- ==================== TRUST BADGE BAR ==================== -->
+    <div class="trust-bar">
+        <div class="trust-bar-inner">
+            <span><i class="fas fa-certificate"></i> NCR Registered NCRCP22737</span>
+            <span><i class="fas fa-lock"></i> Secure Applications</span>
+            <span><i class="fab fa-whatsapp"></i> WhatsApp Support</span>
+            <span><i class="fas fa-clock"></i> 24h Response</span>
+        </div>
+    </div>
+
+    <!-- ==================== NAVIGATION ==================== -->
     <nav id="navbar">
         <a href="#home" class="logo" aria-label="Wethu Micro Lenders Home">
-            <div class="logo-icon"><i class="fas fa-chart-line"></i></div>
+            <div class="logo-icon">
+                <i class="fas fa-hand-holding-usd"></i>
+            </div>
             <div class="logo-text">
                 <span class="brand">WETHU</span>
                 <span class="sub">Micro Lenders</span>
@@ -79,9 +73,10 @@
             <li><a href="#about" data-nav="about">About Us</a></li>
             <li><a href="#loans" data-nav="loans">Loans</a></li>
             <li><a href="#requirements" data-nav="requirements">Requirements</a></li>
+            <li><a href="#faq" data-nav="faq">FAQ</a></li>
             <li><a href="#apply" data-nav="apply">Apply</a></li>
             <li><a href="#contact" data-nav="contact">Contact</a></li>
-            <li><a href="#apply" class="btn-apply-nav">Apply Now</a></li>
+            <li><a href="#apply" class="btn-apply-nav">Apply in 2 Min</a></li>
         </ul>
         <button class="hamburger" id="hamburger" aria-label="Toggle menu">
             <span></span><span></span><span></span>
@@ -89,36 +84,63 @@
         <div class="mobile-menu-overlay" id="overlay"></div>
     </nav>
 
-    <!-- Hero -->
+    <!-- ==================== HERO ==================== -->
     <section class="hero" id="home">
         <div class="hero-content">
             <div class="hero-badge">
-                <i class="fas fa-check-circle"></i> NCRCP22737 – Registered Credit Provider
+                <i class="fas fa-shield-alt"></i> NCRCP22737 – Registered Credit Provider
             </div>
-            <h1>Loans from R500 – R3000<br><span>Approval within 24 hours</span></h1>
-            <p>No hidden fees. Simple application. Quick response. Trusted service in Atteridgeville.</p>
+            <h1>Fast, Secure Micro Loans<br><span>in South Africa</span></h1>
+            <p>Loans from <strong>R500 – R3000</strong>. Approval within 24 hours. No hidden fees. Apply online in 2 minutes from anywhere in Atteridgeville.</p>
             <div class="hero-btns">
-                <a href="#apply" class="btn-primary">Apply Now <i class="fas fa-chevron-right"></i></a>
-                <a href="#requirements" class="btn-outline">View Requirements</a>
+                <a href="#apply" class="btn-primary btn-pulse">Apply in 2 Minutes <i class="fas fa-chevron-right"></i></a>
+                <a href="#how-it-works" class="btn-outline">How It Works</a>
             </div>
             <div class="ncr-tag">
-                <i class="fas fa-shield-alt"></i> NCRCP22737 | Regulated & Trusted
+                <i class="fas fa-check-circle"></i> NCRCP22737 | Regulated & Trusted | Loans from R500 to R3000
             </div>
         </div>
         <div class="hero-image">
-            <img src="image.jpeg" alt="Happy customer" loading="eager">
+            <img src="image.jpeg" alt="Wethu Micro Lenders – Fast secure loans" loading="eager">
             <div class="floating-badge">
                 <i class="fas fa-check-circle"></i>
-                <span>Loans that help you<br><strong>move forward.</strong></span>
+                <span>Trusted by<br><strong>hundreds of clients</strong></span>
             </div>
         </div>
     </section>
 
-    <!-- Features -->
-    <section class="section-padding" id="about">
+    <!-- ==================== HOW IT WORKS ==================== -->
+    <section class="section-padding" id="how-it-works">
+        <span class="section-label">Simple Process</span>
+        <h2 class="section-title">How to Get Your Loan</h2>
+        <p class="section-subtitle">Three easy steps to get the cash you need.</p>
+        <div class="steps-grid">
+            <div class="step-item">
+                <div class="step-number">1</div>
+                <div class="step-icon"><i class="fas fa-pen-to-square"></i></div>
+                <h4>Apply Online</h4>
+                <p>Fill in our quick 2‑minute application form. It's simple and secure.</p>
+            </div>
+            <div class="step-item">
+                <div class="step-number">2</div>
+                <div class="step-icon"><i class="fas fa-file-circle-check"></i></div>
+                <h4>Get Approved</h4>
+                <p>We review your application within 24 hours. No unnecessary waiting.</p>
+            </div>
+            <div class="step-item">
+                <div class="step-number">3</div>
+                <div class="step-icon"><i class="fas fa-sack-dollar"></i></div>
+                <h4>Receive Your Cash</h4>
+                <p>Once approved, the money is paid directly into your bank account.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FEATURES ==================== -->
+    <section class="section-padding bg-light" id="about">
         <span class="section-label">Why Choose Us</span>
         <h2 class="section-title">Why Choose Wethu Micro Lenders?</h2>
-        <p class="section-subtitle">Fast, transparent, and friendly – we make borrowing simple.</p>
+        <p class="section-subtitle">We're committed to fast, transparent, and friendly financial services.</p>
         <div class="features-grid">
             <div class="feature-item">
                 <div class="feature-icon"><i class="fas fa-bolt"></i></div>
@@ -126,14 +148,14 @@
                 <p>Get a decision within 24 hours of applying. No unnecessary waiting.</p>
             </div>
             <div class="feature-item">
-                <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                <div class="feature-icon"><i class="fas fa-magnifying-glass-dollar"></i></div>
                 <h4>No Hidden Fees</h4>
-                <p>Everything is upfront – what you see is exactly what you pay.</p>
+                <p>Everything is upfront — what you see is exactly what you pay.</p>
             </div>
             <div class="feature-item">
                 <div class="feature-icon"><i class="fas fa-medal"></i></div>
-                <h4>NCRCP22737</h4>
-                <p>Registered credit provider, fully compliant with the National Credit Regulator.</p>
+                <h4>NCRCP22737 Compliant</h4>
+                <p>Registered credit provider, fully compliant with National Credit Regulator regulations.</p>
             </div>
             <div class="feature-item">
                 <div class="feature-icon"><i class="fas fa-heart"></i></div>
@@ -143,7 +165,25 @@
         </div>
     </section>
 
-    <!-- Loan Options -->
+    <!-- ==================== ABOUT US ==================== -->
+    <section class="section-padding" id="about-us">
+        <span class="section-label">About Us</span>
+        <h2 class="section-title">Who We Are</h2>
+        <p class="section-subtitle">A trusted micro-lending partner in the heart of Atteridgeville.</p>
+        <div class="about-container">
+            <div class="about-content">
+                <p><strong>Wethu Micro Lenders</strong> is a proudly South African, NCR‑registered credit provider (NCRCP22737) based at <strong>19 Temba Street, Atteridgeville 0125</strong>.</p>
+                <p>We exist to provide <strong>fast, honest, and affordable short‑term loans</strong> to hard‑working South Africans. Whether it's an emergency, school fees, or a temporary cash shortage — we're here to help you move forward.</p>
+                <p>Our loans range from <strong>R500 to R3000</strong>, with approval within 24 hours and <strong>no hidden costs</strong>. We believe in transparency, respect, and treating every client like family.</p>
+                <a href="#contact" class="btn-outline">Visit or Call Us</a>
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&q=80&w=600" alt="Wethu Micro Lenders office" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== LOAN OPTIONS ==================== -->
     <section class="section-padding loan-options" id="loans">
         <span class="section-label">Our Services</span>
         <h2 class="section-title">Loan Options (R500 – R3000)</h2>
@@ -152,25 +192,25 @@
             <div class="option-card">
                 <div class="card-icon"><i class="far fa-clock"></i></div>
                 <h3>Short-Term Loans</h3>
-                <p>Quick cash from R500 to R3000 with flexible repayment.</p>
+                <p>Quick cash from R500 to R3000 with flexible repayment terms that work for you.</p>
                 <a href="#apply" class="btn-small">Apply Now</a>
             </div>
             <div class="option-card">
                 <div class="card-icon"><i class="fas fa-bell"></i></div>
                 <h3>Emergency Loans</h3>
-                <p>Unexpected expenses? Funds in your account fast.</p>
+                <p>Unexpected expense? We're here to help when you need it most — fast and hassle‑free.</p>
                 <a href="#apply" class="btn-small">Apply Now</a>
             </div>
             <div class="option-card">
                 <div class="card-icon"><i class="fas fa-wallet"></i></div>
                 <h3>Salary-Based Loans</h3>
-                <p>Repayments structured around your payday.</p>
+                <p>Repayments structured around your payday. Affordable and convenient.</p>
                 <a href="#apply" class="btn-small">Apply Now</a>
             </div>
         </div>
     </section>
 
-    <!-- Requirements -->
+    <!-- ==================== REQUIREMENTS ==================== -->
     <section class="section-padding" id="requirements">
         <span class="section-label">Eligibility</span>
         <h2 class="section-title">Basic Requirements</h2>
@@ -182,8 +222,7 @@
                     <div class="req-item"><i class="fas fa-file-invoice-dollar"></i><p>Proof of Income</p></div>
                     <div class="req-item"><i class="fas fa-university"></i><p>Active Bank Account</p></div>
                 </div>
-                <!-- Replaced inline style with a dedicated class -->
-                <p class="req-note">Additional documents may be required depending on the loan amount.</p>
+                <p class="req-note">All loans are subject to affordability assessment under the National Credit Act.</p>
                 <a href="#contact" class="btn-outline">Contact Us for Details</a>
             </div>
             <div class="req-image">
@@ -192,15 +231,96 @@
         </div>
     </section>
 
-    <!-- Application -->
+    <!-- ==================== FAQ ==================== -->
+    <section class="section-padding bg-light" id="faq">
+        <span class="section-label">FAQ</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-subtitle">Real answers to the questions our clients ask most.</p>
+        <div class="faq-container">
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span>How fast is approval really?</span>
+                    <i class="fas fa-plus"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>We process applications within <strong>24 hours</strong>. In many cases, you'll hear back from us the same day. Once approved, funds are paid directly into your bank account.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span>What if I can't repay on time?</span>
+                    <i class="fas fa-plus"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>We understand that life happens. <strong>Contact us immediately</strong> if you're struggling — we'll work with you to find a solution. Ignoring the problem only makes it worse. We're here to help, not to punish.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span>Do you blacklist people?</span>
+                    <i class="fas fa-plus"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>We don't "blacklist" anyone. However, as an NCR‑registered provider, we do report to credit bureaus as required by law. Late or missed payments can affect your credit score, so please keep us informed.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span>Is my personal data safe with you?</span>
+                    <i class="fas fa-plus"></i>
+                </button>
+                <div class="faq-answer">
+                    <p><strong>Absolutely.</strong> We take data protection seriously. Your information is stored securely and only used for the loan application process. We never sell or share your data with unauthorised third parties. All applications are encrypted.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span>Do you check my credit score?</span>
+                    <i class="fas fa-plus"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>As a registered credit provider, we conduct <strong>affordability assessments</strong> as required by the National Credit Act. This may include a credit check. Even if your score isn't perfect, don't be discouraged — we assess each application on its own merits.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span>Is your WhatsApp number official?</span>
+                    <i class="fas fa-plus"></i>
+                </button>
+                <div class="faq-answer">
+                    <p><strong>Yes!</strong> You can reach us on WhatsApp at <strong>072 619 6719</strong>. We use WhatsApp for quick, convenient communication. Always verify you're chatting with our official number — we'll never ask for passwords or upfront payments.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span>How much can I borrow?</span>
+                    <i class="fas fa-plus"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>We offer loans from <strong>R500 to R3000</strong> for first‑time clients. The exact amount depends on your affordability assessment. Returning clients may qualify for higher amounts based on good repayment history.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span>What documents do I need?</span>
+                    <i class="fas fa-plus"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>You'll need: <strong>(1)</strong> a valid South African ID, <strong>(2)</strong> proof of income (payslip or bank statement), and <strong>(3)</strong> an active bank account. Additional documents may be requested depending on the loan amount.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== APPLICATION ==================== -->
     <section class="section-padding apply-section" id="apply">
         <span class="section-label">Get Started</span>
-        <h2 class="section-title">Apply for a Loan</h2>
-        <p class="section-subtitle">Fill in the online form – it only takes a few minutes.</p>
+        <h2 class="section-title">Apply for Your Loan Now</h2>
+        <p class="section-subtitle">Fill in the secure online form — it only takes 2 minutes.</p>
         <div class="apply-card">
             <div class="apply-card-header">
                 <i class="fas fa-edit"></i>
-                <h3>Online Application Form</h3>
+                <h3>Secure Online Application</h3>
             </div>
             <div class="apply-card-body">
                 <iframe
@@ -222,49 +342,51 @@
                 </a>
             </div>
         </div>
+        <p class="apply-note">
+            <i class="fas fa-shield-alt"></i> Your data is encrypted and protected. We never share your information without consent.
+        </p>
     </section>
 
-    <!-- Testimonials -->
+    <!-- ==================== TESTIMONIALS ==================== -->
     <section class="section-padding loan-options" id="testimonials">
         <span class="section-label">Testimonials</span>
         <h2 class="section-title">What Our Clients Say</h2>
-        <p class="section-subtitle">Real feedback from people we've helped.</p>
+        <p class="section-subtitle">Real feedback from hundreds of satisfied clients.</p>
         <div class="testimonial-grid">
             <div class="test-card">
                 <span class="quote-icon"><i class="fas fa-quote-left"></i></span>
-                <p>"Wethu helped me when I needed urgent cash. Quick and easy!"</p>
+                <p>"Wethu helped me when I needed urgent cash for school fees. The process was so quick and professional. Highly recommend!"</p>
                 <strong>- Thabo M.</strong>
                 <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
             </div>
             <div class="test-card">
                 <span class="quote-icon"><i class="fas fa-quote-left"></i></span>
-                <p>"Great service, same‑day approval. Highly recommended."</p>
+                <p>"Great service, same‑day approval, and the staff are so friendly. I've used them twice now. Never disappointed."</p>
                 <strong>- Nomsa K.</strong>
                 <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
             </div>
             <div class="test-card">
                 <span class="quote-icon"><i class="fas fa-quote-left"></i></span>
-                <p>"Transparent terms, no hidden fees. I'll use them again."</p>
+                <p>"Transparent terms, no hidden fees. Everything was explained clearly before I signed. I'll definitely use them again."</p>
                 <strong>- Sipho D.</strong>
                 <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
             </div>
         </div>
     </section>
 
-    <!-- Contact -->
+    <!-- ==================== CONTACT ==================== -->
     <section class="section-padding contact-section" id="contact">
         <span class="section-label">Get In Touch</span>
         <h2 class="section-title">Contact Us</h2>
-        <p class="section-subtitle">We're here to help. Reach out anytime.</p>
+        <p class="section-subtitle">We're here to help. Reach out anytime via phone, WhatsApp, or visit our office.</p>
         <div class="contact-grid">
-            <a href="tel:0815854377" class="contact-card phone-card">
+            <a href="tel:0726196719" class="contact-card phone-card">
                 <i class="fas fa-phone-alt"></i>
                 <h4>Call Us Now</h4>
-                <span>081 585 4377</span>
-                <!-- Inline style replaced with class -->
-                <p class="contact-note">Tap to call – we're ready to assist</p>
+                <span>072 619 6719</span>
+                <p class="contact-note">Tap to call — we're ready to assist</p>
             </a>
-            <a href="https://wa.me/27815854377?text=Hi%2C%20I%27m%20contacting%20you%20from%20the%20Wethu%20Micro%20Lenders%20website."
+            <a href="https://wa.me/27726196719?text=Hi%2C%20I%27m%20contacting%20you%20from%20the%20Wethu%20Micro%20Lenders%20website."
                target="_blank" rel="noopener noreferrer" class="contact-card">
                 <i class="fab fa-whatsapp"></i><h4>WhatsApp</h4><span>Chat with us</span>
             </a>
@@ -275,53 +397,72 @@
         </div>
     </section>
 
-    <!-- Footer CTA -->
+    <!-- ==================== FOOTER CTA ==================== -->
     <div class="footer-cta">
         <div>
             <h2>Ready to get started?</h2>
-            <p>Apply in under 5 minutes and get a response within 24 hours.</p>
+            <p>Apply in under 2 minutes and get a response within 24 hours.</p>
         </div>
-        <a href="#apply" class="btn-white">Start Your Application <i class="fas fa-chevron-right"></i></a>
+        <a href="#apply" class="btn-white">Apply Now <i class="fas fa-chevron-right"></i></a>
     </div>
 
+    <!-- ==================== FOOTER ==================== -->
     <footer>
-        <div class="footer-info">
-            <a href="tel:0815854377"><i class="fas fa-phone-alt"></i> 081 585 4377</a>
-            <a href="https://wa.me/27815854377?text=Hi%2C%20I%27m%20contacting%20you%20from%20the%20Wethu%20Micro%20Lenders%20website."
-               target="_blank" rel="noopener noreferrer">
-               <i class="fab fa-whatsapp"></i> WhatsApp
-            </a>
-            <a href="https://maps.google.com/?q=19+Temba+Street+Atteridgeville+0125"
-               target="_blank" rel="noopener noreferrer">
-               <i class="fas fa-map-marker-alt"></i> 19 Temba Street, Atteridgeville 0125
-            </a>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Wethu Micro Lenders</h4>
+                <p>NCR Registration: <strong>NCRCP22737</strong></p>
+                <p>19 Temba Street, Atteridgeville 0125</p>
+                <p><i class="fas fa-phone-alt"></i> 072 619 6719</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <a href="#home">Home</a>
+                <a href="#about">About Us</a>
+                <a href="#loans">Loan Options</a>
+                <a href="#faq">FAQ</a>
+                <a href="#apply">Apply Now</a>
+            </div>
+            <div class="footer-col">
+                <h4>Connect</h4>
+                <a href="https://wa.me/27726196719?text=Hi%2C%20I%27m%20contacting%20you%20from%20the%20Wethu%20Micro%20Lenders%20website." target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <a href="tel:0726196719"><i class="fas fa-phone-alt"></i> 072 619 6719</a>
+                <a href="https://maps.google.com/?q=19+Temba+Street+Atteridgeville+0125" target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-map-marker-alt"></i> Get Directions
+                </a>
+            </div>
+        </div>
+        <div class="footer-disclaimer">
+            <p><strong>Disclaimer:</strong> Loans are subject to affordability assessment under the National Credit Act (NCA). Wethu Micro Lenders is a registered credit provider — NCRCP22737. Late or missed payments may affect your credit score. Please borrow responsibly.</p>
         </div>
         <div class="footer-bottom">
-            &copy; 2024 Wethu Micro Lenders. NCRCP22737. All rights reserved.
+            <p>&copy; 2025 Wethu Micro Lenders. NCRCP22737. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- WhatsApp floating button -->
-    <a href="https://wa.me/27815854377?text=Hi%2C%20I%27m%20contacting%20you%20from%20the%20Wethu%20Micro%20Lenders%20website."
+    <!-- ==================== WHATSAPP FLOATING BUTTON ==================== -->
+    <a href="https://wa.me/27726196719?text=Hi%2C%20I%27m%20contacting%20you%20from%20the%20Wethu%20Micro%20Lenders%20website."
        target="_blank" rel="noopener noreferrer"
        class="whatsapp-float"
        aria-label="Chat on WhatsApp">
        <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- Back to top button -->
+    <!-- ==================== BACK TO TOP ==================== -->
     <a href="#home" class="back-to-top" id="backToTop" aria-label="Back to top">
         <i class="fas fa-chevron-up"></i>
     </a>
 
-    <!-- Structured data for SEO -->
+    <!-- ==================== STRUCTURED DATA ==================== -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
         "name": "Wethu Micro Lenders",
-        "description": "Fast, reliable loans from R500 to R3000 in Atteridgeville. NCRCP22737. Approval within 24 hours.",
-        "telephone": "0815854377",
+        "description": "Fast, secure micro loans from R500 to R3000 in Atteridgeville. NCR registered NCRCP22737. Approval within 24 hours.",
+        "telephone": "0726196719",
         "address": {
             "@type": "PostalAddress",
             "streetAddress": "19 Temba Street",
@@ -332,11 +473,14 @@
         "openingHours": "Mo-Fr 08:00-17:00",
         "url": "https://wethumicrolenders.co.za",
         "image": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=600",
-        "priceRange": "R500 - R3000"
+        "priceRange": "R500 - R3000",
+        "sameAs": [
+            "https://wa.me/27726196719"
+        ]
     }
     </script>
 
-    <!-- External JavaScript (no inline scripts) -->
+    <!-- External JavaScript -->
     <script src="main.js" defer></script>
 
 </body>
