@@ -1,47 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Basic document setup -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO description -->
     <meta name="description" content="Wethu Micro Lenders – Fast loans from R500 to R3000 in Atteridgeville. NCR registered NCRCP22737. Approval within 24 hours, no hidden fees.">
+
+    <!-- Prevent browser theme mismatch -->
     <meta name="theme-color" content="#0d4a6b">
+
+    <!-- Mobile app behavior -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- Favicon / App icon -->
     <link rel="icon" type="image/jpeg" href="image.jpeg">
     <link rel="apple-touch-icon" href="image.jpeg">
-    <!-- Security Policy (NO 'unsafe-inline' – all scripts/styles external) -->
+
+    <!--
+        CONTENT SECURITY POLICY (CSP)
+        - Prevents XSS (script injection attacks)
+        - Restricts where scripts, images, fonts can load from
+        - MUST also be enforced on server (Nginx/Django), not only here
+    -->
     <meta http-equiv="Content-Security-Policy"
-    content="
-    default-src 'self';
-    script-src 'self';
-    style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com;
-    font-src 'self' https://fonts.gstatic.com;
-    img-src 'self' https://images.unsplash.com data:;
-    frame-src https://docs.google.com;
-    object-src 'none';
-    base-uri 'self';
-    frame-ancestors 'self';
-    upgrade-insecure-requests;
+        content="
+        default-src 'self'; 
+        script-src 'self'; 
+        style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com; 
+        font-src 'self' https://fonts.gstatic.com; 
+
+        /* Only allow trusted image sources */
+        img-src 'self' https://images.unsplash.com; 
+
+        /* Only allow Google Forms iframe */
+        frame-src https://docs.google.com; 
+
+        /* Block dangerous plugin execution */
+        object-src 'none'; 
+
+        /* Prevent site from being embedded in other sites (clickjacking protection) */
+        frame-ancestors 'self'; 
+
+        /* Force HTTPS usage */
+        upgrade-insecure-requests; 
+
+        /* Prevent <base> tag injection attacks */
+        base-uri 'self';
     ">
 
+    <!-- Prevent MIME-type sniffing (stops some attack tricks) -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
+
+    <!-- Control how referrer info is shared -->
     <meta name="referrer" content="strict-origin-when-cross-origin">
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="Wethu Micro Lenders | Fast Loans R500‑R3000">
+    <!-- Open Graph (social sharing preview) -->
+    <meta property="og:title" content="Wethu Micro Lenders | Fast Loans R500-R3000">
     <meta property="og:description" content="NCR registered (NCRCP22737). Quick approval, no hidden fees. Apply online now.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://wethumicrolenders.co.za/">
     <meta property="og:image" content="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=600">
 
-    <title>Wethu Micro Lenders | Fast Loans R500‑R3000 – NCRCP22737</title>
+    <title>Wethu Micro Lenders | Fast Loans R500-R3000 – NCRCP22737</title>
 
-    <!-- External CSS -->
+    <!-- External CSS only (required for CSP security compliance) -->
     <link rel="stylesheet" href="styles.css">
-    <!-- Google Fonts -->
+
+    <!-- External fonts (allowed in CSP) -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Font Awesome -->
+
+    <!-- Icon library (CDN allowed by CSP) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 
