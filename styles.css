@@ -62,6 +62,19 @@ nav {
     box-shadow: 0 1px 0 transparent;
 }
 
+/* Note under requirements list */
+.req-note {
+    color: #636e72;
+    margin-bottom: 20px;
+}
+
+/* Phone card note text */
+.contact-note {
+    font-size: 0.8rem;
+    opacity: 0.7;
+    margin-top: 6px;
+}
+
 nav.scrolled {
     border-bottom: 1px solid var(--border-light);
     box-shadow: var(--shadow-sm);
