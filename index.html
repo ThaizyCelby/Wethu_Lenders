@@ -21,40 +21,28 @@
 
     <!--
         CONTENT SECURITY POLICY (CSP)
-        - Prevents XSS (script injection attacks)
-        - Restricts where scripts, images, fonts can load from
-        - MUST also be enforced on server (Nginx/Django), not only here
+        - No 'unsafe-inline' for scripts or styles (all CSS/JS external)
+        - Only allows images from self and Unsplash
+        - Only allows Google Forms in iframes
+        - Fonts allowed from Google Fonts and Font Awesome CDN
     -->
     <meta http-equiv="Content-Security-Policy"
-        content="
-        default-src 'self'; 
-        script-src 'self'; 
-        style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com; 
-        font-src 'self' https://fonts.gstatic.com; 
+          content="
+          default-src 'self';
+          script-src 'self';
+          style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com;
+          font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
+          img-src 'self' https://images.unsplash.com;
+          frame-src https://docs.google.com;
+          object-src 'none';
+          upgrade-insecure-requests;
+          base-uri 'self';
+          ">
 
-        /* Only allow trusted image sources */
-        img-src 'self' https://images.unsplash.com; 
-
-        /* Only allow Google Forms iframe */
-        frame-src https://docs.google.com; 
-
-        /* Block dangerous plugin execution */
-        object-src 'none'; 
-
-        /* Prevent site from being embedded in other sites (clickjacking protection) */
-        frame-ancestors 'self'; 
-
-        /* Force HTTPS usage */
-        upgrade-insecure-requests; 
-
-        /* Prevent <base> tag injection attacks */
-        base-uri 'self';
-    ">
-
-    <!-- Prevent MIME-type sniffing (stops some attack tricks) -->
+    <!-- Prevent MIME‑type sniffing -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
 
-    <!-- Control how referrer info is shared -->
+    <!-- Referrer policy -->
     <meta name="referrer" content="strict-origin-when-cross-origin">
 
     <!-- Open Graph (social sharing preview) -->
@@ -66,15 +54,14 @@
 
     <title>Wethu Micro Lenders | Fast Loans R500-R3000 – NCRCP22737</title>
 
-    <!-- External CSS only (required for CSP security compliance) -->
+    <!-- External CSS only (required for strict CSP) -->
     <link rel="stylesheet" href="styles.css">
 
-    <!-- External fonts (allowed in CSP) -->
+    <!-- External fonts (allowed by CSP) -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Icon library (CDN allowed by CSP) -->
+    <!-- Font Awesome icons (allowed by CSP) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
 </head>
 <body>
 
@@ -195,7 +182,8 @@
                     <div class="req-item"><i class="fas fa-file-invoice-dollar"></i><p>Proof of Income</p></div>
                     <div class="req-item"><i class="fas fa-university"></i><p>Active Bank Account</p></div>
                 </div>
-                <p style="color: #636e72; margin-bottom: 20px;">Additional documents may be required depending on the loan amount.</p>
+                <!-- Replaced inline style with a dedicated class -->
+                <p class="req-note">Additional documents may be required depending on the loan amount.</p>
                 <a href="#contact" class="btn-outline">Contact Us for Details</a>
             </div>
             <div class="req-image">
@@ -273,7 +261,8 @@
                 <i class="fas fa-phone-alt"></i>
                 <h4>Call Us Now</h4>
                 <span>081 585 4377</span>
-                <p style="font-size:0.8rem;opacity:0.7;margin-top:6px;">Tap to call – we're ready to assist</p>
+                <!-- Inline style replaced with class -->
+                <p class="contact-note">Tap to call – we're ready to assist</p>
             </a>
             <a href="https://wa.me/27815854377?text=Hi%2C%20I%27m%20contacting%20you%20from%20the%20Wethu%20Micro%20Lenders%20website."
                target="_blank" rel="noopener noreferrer" class="contact-card">
@@ -347,7 +336,7 @@
     }
     </script>
 
-    <!-- External JS (NO inline scripts) -->
+    <!-- External JavaScript (no inline scripts) -->
     <script src="main.js" defer></script>
 
 </body>
