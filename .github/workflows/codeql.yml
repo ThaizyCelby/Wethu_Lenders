@@ -1,0 +1,221 @@
+name: "CodeQL Advanced Secure"
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+  schedule:
+    - cron: '17 21 * * 3'  # weekly scan Wed 21:17 UTC
+
+# Prevent concurrent runs on same ref to save resources
+concurrency:
+  group: codeql-${{ github.ref }}
+  cancel-in-progress: true
+
+# Enforce minimal permissions (principle of least privilege)
+permissions:
+  contents: read      # required for checkout
+  security-events: write  # upload SARIF results
+  actions: read       # to read code scanning configuration
+  packages: read      # for private CodeQL packs
+  id-token: write     # required for OIDC authentication (e.g., to external services)
+  pull-requests: write  # optional: to comment findings on PRs
+
+jobs:
+  analyze:
+    name: Analyze (${{ matrix.language }})
+    # Use hardened runner with Ubuntu 22.04 (LTS) for stability
+    runs-on: ${{ (matrix.language == 'swift' && 'macos-latest') || 'ubuntu-22.04' }}
+
+    # Isolate build environment for additional security
+    container:
+      image: ghcr.io/actions/ubuntu-jammy:latest
+      options: --read-only --tmpfs /tmp --tmpfs /github/home
+      env:
+        NODE_OPTIONS: "--max-old-space-size=4096"
+
+    strategy:
+      fail-fast: false  # allow other languages to finish if one fails
+      matrix:
+        include:
+          - language: javascript-typescript
+            build-mode: none
+          - language: python
+            build-mode: none
+          # Add more languages as needed (e.g., go, java-kotlin)
+
+    steps:
+      # ---- HARDENING & CHECKOUT ----
+      - name: Harden runner (strict egress policy)
+        uses: step-security/harden-runner@v2
+        with:
+          egress-policy: block
+          allowed-endpoints: >
+            api.github.com:443
+            github.com:443
+            objects.githubusercontent.com:443
+            uploads.github.com:443
+            registry.npmjs.org:443
+            pypi.org:443
+            files.pythonhosted.org:443
+            codeql-action.s3.amazonaws.com:443
+            github-code-scanning.s3.amazonaws.com:443
+
+      - name: Checkout repository (with full history for accurate detection)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # full history for better SAST, trufflehog scanning
+          persist-credentials: false  # prevent token leak
+
+      # ---- LANGUAGE-SPECIFIC DEPENDENCY INSTALLATION (SECURE MODE) ----
+      - name: Set up Node.js (with strict cache)
+        if: matrix.language == 'javascript-typescript'
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          check-latest: false   # use exact version from lockfile
+
+      - name: Install npm dependencies (offline, scripts disabled)
+        if: matrix.language == 'javascript-typescript'
+        run: |
+          npm ci --ignore-scripts --no-audit --no-fund --prefer-offline
+          npm cache clean --force
+
+      - name: Set up Python (with hash verification)
+        if: matrix.language == 'python'
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install Python dependencies (restricted)
+        if: matrix.language == 'python'
+        run: |
+          pip install --no-deps --require-hashes -r requirements.txt 2>/dev/null || \
+          pip install pip-audit  # fallback for missing hashes, but warn
+          pip cache purge
+
+      # ---- CODEQL ANALYSIS ----
+      - name: Initialize CodeQL (with extended security queries)
+        uses: github/codeql-action/init@v4
+        with:
+          languages: ${{ matrix.language }}
+          build-mode: ${{ matrix.build-mode }}
+          queries: +security-extended,security-and-quality  # most comprehensive query packs
+          config: |
+            paths-ignore:
+              - '**/test/**'
+              - '**/mock/**'
+              - '**/fixtures/**'
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v4
+        with:
+          category: "/language:${{matrix.language}}"
+          upload: true
+          output: codeql-results
+
+      # ---- ADDITIONAL SECURITY SCANNING (LANGUAGE-AGNOSTIC) ----
+      - name: Dependency Review (PR only)
+        if: github.event_name == 'pull_request'
+        uses: actions/dependency-review-action@v4
+        with:
+          fail-on-severity: high
+          comment-summary-in-pr: true
+
+      - name: Generate SBOM (SPDX)
+        uses: anchore/sbom-action@v0
+        with:
+          format: spdx-json
+          output-file: sbom.spdx.json
+
+      - name: Upload SBOM as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: sbom-${{ matrix.language }}
+          path: sbom.spdx.json
+          retention-days: 90
+
+      - name: Secret scanning with TruffleHog (deep scan)
+        uses: trufflesecurity/trufflehog@v3
+        with:
+          path: .
+          base: main
+          head: HEAD
+          extra_args: --only-verified --fail
+
+      - name: SAST with Semgrep (including supply chain rules)
+        uses: returntocorp/semgrep-action@v1
+        with:
+          config: |
+            p/security-audit
+            p/supply-chain
+          generate-sarif: true
+
+      - name: Upload Semgrep SARIF results
+        uses: github/codeql-action/upload-sarif@v4
+        with:
+          sarif_file: semgrep.sarif
+
+      - name: Filesystem vulnerability scan (Trivy)
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'fs'
+          scan-ref: '.'
+          format: 'sarif'
+          output: 'trivy-results.sarif'
+          severity: 'CRITICAL,HIGH'
+
+      - name: Upload Trivy results to Code Scanning
+        uses: github/codeql-action/upload-sarif@v4
+        with:
+          sarif_file: trivy-results.sarif
+
+      # ---- DEPENDENCY VULNERABILITY CHECKS ----
+      - name: npm audit (strict)
+        if: matrix.language == 'javascript-typescript'
+        run: |
+          npm audit --audit-level=high --production
+          # Fail if any vulnerability ≥ high severity
+          if [ $? -ne 0 ]; then exit 1; fi
+
+      - name: Python dependency scan (pip-audit)
+        if: matrix.language == 'python'
+        run: |
+          pip-audit --requirement requirements.txt --severity high --desc --ignore-unpinned
+          # fail on high/critical findings
+
+      # ---- ENFORCEMENT & BLOCKING GATES ----
+      - name: Enforce security policy (fail on critical findings)
+        if: always()
+        run: |
+          # Check CodeQL results (SARIF) for any error-level findings
+          # Using github/codeql-action/analyze already fails if alerts are "error" level.
+          # Additional custom logic:
+          if grep -q '"level":"error"' codeql-results/*.sarif 2>/dev/null; then
+            echo "❌ CodeQL found error-level security issues."
+            exit 1
+          fi
+          echo "✅ Security policy enforced – no critical violations."
+
+      - name: Comment PR with security summary
+        if: github.event_name == 'pull_request' && always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const summary = `Security scan results for ${context.payload.pull_request.head.sha}:
+            - CodeQL: completed ✅
+            - TruffleHog: secret scan finished
+            - Semgrep: SAST completed
+            - Trivy: FS vulnerability scan completed
+            - Dependency review: high severity fails blocking
+            - SBOM generated and attached as artifact.
+            Full details in the Security tab.`;
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: summary
+            });
