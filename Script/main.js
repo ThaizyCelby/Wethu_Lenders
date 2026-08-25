@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const updateCalculator = () => {
             const amount = parseInt(slider.value, 10);
-            const interest = amount * 0.35;
+            const interest = amount * 0.30;
             const total = amount + interest;
             amountDisplay.textContent = `R${amount.toLocaleString('en-ZA')}`;
             interestDisplay.textContent = `R${interest.toLocaleString('en-ZA', {maximumFractionDigits: 0})}`;
