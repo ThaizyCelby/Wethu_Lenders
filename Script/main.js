@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const message = `Hi Wethu Micro Lenders, I would like to apply for a loan of R${parseInt(loanAmount).toLocaleString('en-ZA')}.\n\nName: ${fullName}\nID: ${idNumber}\nPhone: ${phoneNumber}\n\nI agree to the Terms & Conditions and Privacy Policy.`;
             const encodedMessage = encodeURIComponent(message);
-            const waLink = `https://wa.me/27726196719?text=${encodedMessage}`;
+            const waLink = `https://wa.me/27723248511?text=${encodedMessage}`;
             window.open(waLink, '_blank', 'noopener,noreferrer');
         });
     }
