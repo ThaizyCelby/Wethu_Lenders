@@ -893,13 +893,13 @@ nav.scrolled {
 
 .apply-card-body { padding: 20px; }
 
-.apply-card-body iframe {
+/* .apply-card-body iframe {
     width: 100%;
     height: 520px;
     border: none;
     border-radius: var(--radius-sm);
     background: #fafafa;
-}
+} */
 
 .apply-card-footer {
     padding: 16px 20px;
@@ -1572,3 +1572,41 @@ input[type="range"]::-webkit-slider-thumb {
     .founder-photo img { width: 200px; height: 200px; }
     .tshirt-img, .tshirt-large { width: 200px; }
 }
+
+
+/* ==================== ACCESSIBILITY ADDITIONS ==================== */
+
+/* Visible focus ring for keyboard users */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+[tabindex]:focus-visible {
+    outline: 3px solid var(--accent-blue);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+/* Hamburger when menu is open */
+.hamburger[aria-expanded="true"] span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.hamburger[aria-expanded="true"] span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Improved focus visibility for FAQ buttons */
+.faq-question:focus-visible {
+    background: var(--light-blue);
+    color: var(--primary-blue);
+}
+
+/* .apply-card-body iframe styling is only relevant if a page ever embeds one.
+   With CSP frame-src 'none' in the header, iframes are blocked — remove this
+   rule if you never intend to embed anything. */

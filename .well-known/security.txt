@@ -1,0 +1,4 @@
+Contact: mailto:Sales@wethumicrolenders.com
+Expires: 2027-12-31T23:59:59.000Z
+Preferred-Languages: en, zu
+Canonical: https://wethumicrolenders.co.za/.well-known/security.txt

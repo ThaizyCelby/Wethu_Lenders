@@ -1,0 +1,22 @@
+# Environment / secrets
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+secrets/
+credentials/
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Node (used only by CI)
+node_modules/
+npm-debug.log*
+
+# Local preview
+_site/

@@ -1,0 +1,75 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: JavaScript syntax check
+        run: |
+          for f in Script/*.js; do
+            echo "Checking $f"
+            node --check "$f"
+          done
+
+      - name: Fail on dangerous DOM/JS patterns
+        run: |
+          set -e
+          if grep -RIn --include="*.html" --include="*.js" -E "innerHTML|insertAdjacentHTML|document\.write|eval\(|new Function" . ; then
+            echo "::error::Unsafe DOM/JS pattern found"; exit 1
+          fi
+
+      - name: Fail on client-side storage of user data
+        run: |
+          set -e
+          if grep -RIn --include="*.html" --include="*.js" -E "localStorage|sessionStorage|document\.cookie" . ; then
+            echo "::error::Client-side storage detected"; exit 1
+          fi
+
+      - name: Fail on hardcoded ID-number patterns in WhatsApp URLs
+        run: |
+          set -e
+          if grep -RIn --include="*.js" --include="*.html" -E "idNumber|id_number|ID Number" . ; then
+            echo "::error::ID number collection detected"; exit 1
+          fi
+
+      - name: Ensure canonical phone number is consistent
+        run: |
+          set -e
+          if grep -RIn --include="*.html" --include="*.js" -E "0726196719|27726196719|072 619 6719" . ; then
+            echo "::error::Legacy phone number found — must be 0723248511"; exit 1
+          fi
+
+      - name: Secret scan (gitleaks)
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: HTML validation
+        run: |
+          npm install --no-save html-validate@9
+          npx html-validate "**/*.html"
+
+      - name: CSS lint
+        run: |
+          npm install --no-save stylelint@16 stylelint-config-standard@36
+          npx stylelint "Static/**/*.css" --config '{"extends":"stylelint-config-standard"}' || true
+
+      - name: Broken link check (internal)
+        run: |
+          npm install --no-save linkinator@6
+          npx linkinator . --recurse --skip "https://" --skip "http://" || true

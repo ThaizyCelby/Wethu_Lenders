@@ -1,24 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-ZA">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apply for a Loan – Wethu Micro Lenders | WhatsApp Application</title>
-    <meta name="description" content="Apply for a loan from R500 to R3000 with Wethu Micro Lenders. Fill in the simple form and send via WhatsApp. No hidden fees.">
+    <title>Apply for a Loan – Wethu Micro Lenders | WhatsApp Enquiry</title>
+    <meta name="description" content="Start your Wethu Micro Lenders loan enquiry. Provide your name, mobile number and requested amount, then continue on WhatsApp. Final terms subject to affordability assessment.">
     <meta name="theme-color" content="#0d4a6b">
-    <link rel="icon" type="image/jpeg" href="../Images/image.jpeg">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data:; connect-src 'self'; frame-src 'none'; object-src 'none'; upgrade-insecure-requests; base-uri 'self'; form-action 'self';">
-    <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <link rel="icon" type="image/png" sizes="32x32" href="../Images/favicon-32.png">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data:; script-src 'self'; style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; connect-src 'self'; form-action 'self'; upgrade-insecure-requests;">
+    <link rel="canonical" href="https://wethumicrolenders.co.za/Pages/apply.html">
+    <meta property="og:title" content="Apply for a Loan – Wethu Micro Lenders">
+    <meta property="og:description" content="Start your loan enquiry. Continue on WhatsApp.">
+    <meta property="og:url" content="https://wethumicrolenders.co.za/Pages/apply.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://wethumicrolenders.co.za/Images/og-cover.jpg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="../Static/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <nav id="navbar">
         <a href="../index.html" class="logo" aria-label="Wethu Micro Lenders Home">
-            <div class="logo-icon"><i class="fas fa-hand-holding-usd"></i></div>
+            <div class="logo-icon"><i class="fas fa-hand-holding-usd" aria-hidden="true"></i></div>
             <div class="logo-text"><span class="brand">WETHU</span><span class="sub">Micro Lenders</span></div>
         </a>
         <ul class="nav-links" id="navLinks">
@@ -31,69 +40,81 @@
             <li><a href="contact.html">Contact</a></li>
             <li><a href="apply.html" class="btn-apply-nav">Apply Now</a></li>
         </ul>
-        <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
         <div class="mobile-menu-overlay" id="overlay"></div>
     </nav>
 
     <main class="section-padding apply-page">
         <span class="section-label">Apply Now</span>
-        <h1 class="section-title">Loan Application via WhatsApp</h1>
-        <p class="section-subtitle">Fill in the form below, review your details, then click to send via WhatsApp. No accounts or passwords needed.</p>
+        <h1 class="section-title">Loan Enquiry via WhatsApp</h1>
+        <p class="section-subtitle">
+            Fill in your name, contact number and requested amount. When you press
+            <strong>Continue on WhatsApp</strong>, WhatsApp will open with a pre-filled
+            message. You choose whether to send it. Your actual application and any
+            documents are handled by our team directly on WhatsApp.
+        </p>
 
         <div class="calculator-container" style="margin-bottom:40px;">
             <div class="calculator-card">
-                <label for="loanAmountApply" class="amount-label">Loan Amount: <span id="amountDisplayApply">R1,500</span></label>
-                <input type="range" id="loanAmountApply" min="500" max="3000" step="50" value="1500" aria-label="Select loan amount for application">
+                <label for="loanAmountApply" class="amount-label">Requested Amount: <span id="amountDisplayApply">R1,500</span></label>
+                <input type="range" id="loanAmountApply" min="500" max="3000" step="50" value="1500" aria-label="Select requested loan amount">
                 <div class="calc-results">
-                    <div class="calc-item"><span>Interest</span><strong id="interestDisplayApply">R525</strong></div>
-                    <div class="calc-item"><span>Total Repayment</span><strong id="totalRepaymentApply">R2,025</strong></div>
+                    <div class="calc-item"><span>Illustrative Interest</span><strong id="interestDisplayApply">R450</strong></div>
+                    <div class="calc-item"><span>Illustrative Total</span><strong id="totalRepaymentApply">R1,950</strong></div>
                 </div>
-                <p class="calc-note">*30-day term. No hidden fees. Total repayment includes principal + interest.</p>
+                <p class="calc-note">Illustrative only. Not a binding quotation. Final terms are set out in your credit agreement and are subject to affordability assessment under the National Credit Act.</p>
             </div>
         </div>
 
-        <form id="whatsappForm" class="whatsapp-form">
+        <form id="whatsappForm" class="whatsapp-form" novalidate autocomplete="off">
             <div class="form-group">
                 <label for="fullName">Full Name *</label>
-                <input type="text" id="fullName" name="fullName" required placeholder="Your full name" autocomplete="name">
+                <input type="text" id="fullName" name="fullName" required maxlength="80" placeholder="Your full name" autocomplete="name">
             </div>
             <div class="form-group">
-                <label for="idNumber">SA ID Number *</label>
-                <input type="text" id="idNumber" name="idNumber" required placeholder="13-digit ID number" pattern="[0-9]{13}" maxlength="13" inputmode="numeric" autocomplete="off">
+                <label for="phoneNumber">Mobile Number (SA) *</label>
+                <input type="tel" id="phoneNumber" name="phoneNumber" required maxlength="20"
+                       inputmode="tel" placeholder="0721234567" autocomplete="tel">
             </div>
             <div class="form-group">
-                <label for="phoneNumber">Contact Number *</label>
-                <input type="tel" id="phoneNumber" name="phoneNumber" required placeholder="e.g., 0723248511" pattern="[0-9]{10}" maxlength="10" inputmode="numeric" autocomplete="tel">
-            </div>
-            <div class="form-group">
-                <label>Loan Amount (from slider above): <strong id="formAmountDisplay">R1,500</strong></label>
+                <p class="amount-label">Requested Amount (from slider above): <strong id="formAmountDisplay">R1,500</strong></p>
                 <input type="hidden" id="loanAmountValue" name="loanAmountValue" value="1500">
             </div>
             <div class="form-group agreement-group">
                 <label class="checkbox-label">
                     <input type="checkbox" id="agreeTerms" required>
-                    <span>I agree to the <a href="terms-and-conditions.html" target="_blank">Terms & Conditions</a> and <a href="privacy-policy.html" target="_blank">Privacy Policy</a>. I understand that the interest rate is calculated as shown in the loan calculator above and that my information will be processed in accordance with POPIA.</span>
+                    <span>I agree to the
+                        <a href="terms-and-conditions.html" rel="noopener noreferrer">Terms &amp; Conditions</a>
+                        and
+                        <a href="privacy-policy.html" rel="noopener noreferrer">Privacy Policy</a>.
+                        I understand that final loan terms are subject to affordability assessment under the National Credit Act, and that no ID number or documents are collected by this website.</span>
                 </label>
             </div>
-            <button type="submit" class="btn-primary whatsapp-btn">Send Application via WhatsApp <i class="fab fa-whatsapp"></i></button>
+            <button type="submit" class="btn-primary whatsapp-btn">Continue on WhatsApp <i class="fab fa-whatsapp" aria-hidden="true"></i></button>
+            <p id="applyStatus" role="status" aria-live="polite" style="margin-top:12px;font-size:0.9rem;color:var(--primary-blue);"></p>
         </form>
 
-        <p class="apply-note"><i class="fas fa-shield-alt"></i> Your data is encrypted and protected. We never share your information without consent.</p>
+        <p class="apply-note">
+            <i class="fas fa-shield-alt" aria-hidden="true"></i>
+            This website does not collect or store your loan application, ID number, or documents. ID verification happens inside WhatsApp with our team.
+        </p>
     </main>
 
     <footer>
         <div class="footer-grid">
-            <div class="footer-col"><h4>Wethu Micro Lenders</h4><p>NCR Registration: <strong>NCRCP22737</strong></p><p>19 Temba Street, Atteridgeville 0125</p><p><i class="fas fa-phone-alt"></i> 072 324 8511</p><p><i class="fas fa-envelope"></i> Sales@wethumicrolenders.com</p></div>
+            <div class="footer-col"><h4>Wethu Micro Lenders</h4><p>NCR Registration: <strong>NCRCP22737</strong></p><p>19 Temba Street, Atteridgeville 0125</p><p><i class="fas fa-phone-alt" aria-hidden="true"></i> 072 324 8511</p><p><i class="fas fa-envelope" aria-hidden="true"></i> Sales@wethumicrolenders.com</p></div>
             <div class="footer-col"><h4>Quick Links</h4><a href="../index.html">Home</a><a href="about.html">About Us</a><a href="apply.html">Apply Now</a><a href="faq.html">FAQ</a><a href="merchandise.html">T‑Shirts</a><a href="contact.html">Contact</a></div>
-            <div class="footer-col"><h4>Legal</h4><a href="privacy-policy.html">Privacy Policy</a><a href="terms-and-conditions.html">Terms & Conditions</a><a href="popia-disclosure.html">POPIA Disclosure</a></div>
-            <div class="footer-col"><h4>Follow Us</h4><a href="https://www.tiktok.com/@wethumicrolenders" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i> TikTok</a><a href="https://www.facebook.com/wethumicrolenders" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i> Facebook</a><a href="https://www.youtube.com/@wethumicrolenders" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i> YouTube</a></div>
+            <div class="footer-col"><h4>Legal</h4><a href="privacy-policy.html">Privacy Policy</a><a href="terms-and-conditions.html">Terms &amp; Conditions</a><a href="popia-disclosure.html">POPIA Disclosure</a></div>
+            <div class="footer-col"><h4>Follow Us</h4><a href="https://www.tiktok.com/@wethumicrolenders" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok" aria-hidden="true"></i> TikTok</a><a href="https://www.facebook.com/wethumicrolenders" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f" aria-hidden="true"></i> Facebook</a><a href="https://www.youtube.com/@wethumicrolenders" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube" aria-hidden="true"></i> YouTube</a></div>
         </div>
         <div class="footer-disclaimer"><p><strong>Disclaimer:</strong> Loans are subject to affordability assessment under the National Credit Act (NCA). Wethu Micro Lenders is a registered credit provider NCRCP22737. Late or missed payments may affect your credit score. Please borrow responsibly.</p></div>
-        <div class="footer-bottom"><p>&copy; 2026 Wethu Micro Lenders. NCRCP22737. All rights reserved.</p></div>
+        <div class="footer-bottom"><p>&copy; <span data-current-year>2026</span> Wethu Micro Lenders. NCRCP22737. All rights reserved.</p></div>
     </footer>
 
-    <a href="https://wa.me/27726196719?text=Hi%2C%20I%27m%20contacting%20you%20from%20the%20Wethu%20Micro%20Lenders%20website." target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
-    <a href="#" class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fas fa-chevron-up"></i></a>
+    <a href="https://wa.me/27723248511?text=Hi%2C%20I%27m%20contacting%20you%20from%20the%20Wethu%20Micro%20Lenders%20website."
+       target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+    <a href="#" class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fas fa-chevron-up" aria-hidden="true"></i></a>
+    <script src="../Script/config.js" defer></script>
     <script src="../Script/main.js" defer></script>
 </body>
 </html>
