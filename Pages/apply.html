@@ -7,6 +7,8 @@
     <meta name="description" content="Start your Wethu Micro Lenders loan enquiry. Provide your name, mobile number and requested amount, then continue on WhatsApp. Final terms subject to affordability assessment.">
     <meta name="theme-color" content="#0d4a6b">
     <link rel="icon" type="image/png" sizes="32x32" href="../Images/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../Images/favicon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../Images/apple-touch-icon.png">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data:; script-src 'self'; style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; connect-src 'self'; form-action 'self'; upgrade-insecure-requests;">
     <link rel="canonical" href="https://wethumicrolenders.co.za/Pages/apply.html">
     <meta property="og:title" content="Apply for a Loan – Wethu Micro Lenders">
@@ -14,7 +16,9 @@
     <meta property="og:url" content="https://wethumicrolenders.co.za/Pages/apply.html">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://wethumicrolenders.co.za/Images/og-cover.jpg">
-
+    <meta property="og:site_name" content="Wethu Micro Lenders">
+    <meta property="og:locale" content="en_ZA">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
@@ -54,7 +58,7 @@
             documents are handled by our team directly on WhatsApp.
         </p>
 
-        <div class="calculator-container" style="margin-bottom:40px;">
+        <div class="calculator-container calculator-container-spaced">
             <div class="calculator-card">
                 <label for="loanAmountApply" class="amount-label">Requested Amount: <span id="amountDisplayApply">R1,500</span></label>
                 <input type="range" id="loanAmountApply" min="500" max="3000" step="50" value="1500" aria-label="Select requested loan amount">
@@ -91,7 +95,7 @@
                 </label>
             </div>
             <button type="submit" class="btn-primary whatsapp-btn">Continue on WhatsApp <i class="fab fa-whatsapp" aria-hidden="true"></i></button>
-            <p id="applyStatus" role="status" aria-live="polite" style="margin-top:12px;font-size:0.9rem;color:var(--primary-blue);"></p>
+            <p id="applyStatus" role="status" aria-live="polite" class="form-status"></p>
         </form>
 
         <p class="apply-note">

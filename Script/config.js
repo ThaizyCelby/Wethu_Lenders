@@ -2,7 +2,7 @@
 // Single source of truth for Wethu Micro Lenders public configuration.
 // This file is PUBLIC — never put secrets, tokens, or private keys here.
 //
-// IMPORTANT: WETHU_WHATSAPP_E164 is the ONLY trusted WhatsApp destination.
+// IMPORTANT: whatsappE164 is the ONLY trusted WhatsApp destination.
 // User input must NEVER be able to override it.
 
 window.WETHU_CONFIG = Object.freeze({
@@ -26,15 +26,9 @@ window.WETHU_CONFIG = Object.freeze({
     step: 50,
     defaultAmount: 1500,
     termDays: 30,
-    // Indicative-only illustration factor. MUST be replaced by the business
-    // with the actual NCA-compliant figure. Do NOT present as a binding quote.
+    // Indicative-only illustration factor for the calculator.
+    // MUST be replaced by the business with the actual NCA-compliant figure
+    // or the calculator must be removed. Never present as a binding quote.
     indicativeRate: 0.30
-  }),
-
-  // Legal / disclaimers
-  indicativeDisclaimer:
-    "Figures shown are illustrative only and are not a binding quotation. " +
-    "Final loan terms, interest, fees and repayment amounts are set out in " +
-    "the credit agreement and are subject to affordability assessment under " +
-    "the National Credit Act."
+  })
 });

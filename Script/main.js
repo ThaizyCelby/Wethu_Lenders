@@ -15,15 +15,14 @@
     var CFG = window.WETHU_CONFIG;
     if (!CFG) {
         // Fail closed: do not wire up WhatsApp CTAs if config is missing.
-        console.error("[Wethu] config.js missing — WhatsApp CTAs disabled.");
+        if (window.console && console.error) {
+            console.error("[Wethu] config.js missing — WhatsApp CTAs disabled.");
+        }
         return;
     }
 
     // ---------- Helpers ----------
 
-    // Normalise a South African mobile number to E.164 digits without '+'.
-    // Accepts: 0721234567 / 072 123 4567 / +27 72 123 4567 / 27721234567
-    // Returns null if invalid.
     function normaliseSAPhone(raw) {
         if (typeof raw !== "string") return null;
         var digits = raw.replace(/[^\d]/g, "");
@@ -33,38 +32,34 @@
         return "27" + digits;
     }
 
-    // Clamp a requested loan amount to the configured safe range.
     function clampAmount(raw) {
         var n = Number(raw);
         if (!isFinite(n)) return null;
         n = Math.trunc(n);
+        // Snap to step
+        var step = CFG.loan.step || 1;
+        n = Math.round(n / step) * step;
         if (n < CFG.loan.min) n = CFG.loan.min;
         if (n > CFG.loan.max) n = CFG.loan.max;
         return n;
     }
 
-    // Safe text setter.
     function setText(el, text) {
         if (el) el.textContent = String(text);
     }
 
-    // Format a rand amount with thousands separators.
     function formatRand(value) {
         var n = Math.round(value);
         return "R" + n.toLocaleString("en-ZA");
     }
 
-    // Build a WhatsApp URL. Destination is fixed. Only the message is user-influenced.
     function buildWhatsAppUrl(message) {
         var safe = String(message).slice(0, 1000);
         return "https://wa.me/" + CFG.whatsappE164 + "?text=" + encodeURIComponent(safe);
     }
 
-    // Safely open a WhatsApp link without leaking window.opener.
     function openWhatsApp(message) {
-        var url = buildWhatsAppUrl(message);
-        // Same-tab navigation is the safest; we prefer it.
-        window.location.href = url;
+        window.location.href = buildWhatsAppUrl(message);
     }
 
     // ---------- Mobile menu ----------
@@ -180,7 +175,6 @@
         var amountEl2 = document.getElementById("loanAmountValue");
         var agreeEl = document.getElementById("agreeTerms");
 
-        // Remove any accidental default that would POST anywhere.
         form.setAttribute("novalidate", "");
 
         form.addEventListener("submit", function (e) {
@@ -207,8 +201,7 @@
                 return fail("Please accept the Terms & Conditions and Privacy Policy.");
             }
 
-            // IMPORTANT: no ID number is collected or transmitted.
-            // ID verification happens inside the WhatsApp conversation.
+            // No ID number is collected or transmitted.
             var message =
                 "Hi Wethu Micro Lenders, I would like to apply for a loan.\n\n" +
                 "Name: " + name + "\n" +
