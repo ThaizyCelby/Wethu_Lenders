@@ -1,0 +1,38 @@
+# Development tooling and dependencies — never serve these
+node_modules/
+package.json
+package-lock.json
+bun.lock
+bun.lockb
+yarn.lock
+.stylelintrc.json
+.htmlvalidate.json
+.editorconfig
+
+# Repository metadata
+.git/
+.github/
+.gitignore
+README.md
+
+# Wrangler config itself
+wrangler.jsonc
+wrangler.toml
+
+# Local dev / editor
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Local preview output
+_site/
+
+# Logs and env
+*.log
+.env
+.env.*
+
+# Docs and design files
+docs/
+design/
