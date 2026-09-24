@@ -14,7 +14,6 @@
 
     var CFG = window.WETHU_CONFIG;
     if (!CFG) {
-        // Fail closed: do not wire up WhatsApp CTAs if config is missing.
         if (window.console && console.error) {
             console.error("[Wethu] config.js missing — WhatsApp CTAs disabled.");
         }
@@ -36,7 +35,6 @@
         var n = Number(raw);
         if (!isFinite(n)) return null;
         n = Math.trunc(n);
-        // Snap to step
         var step = CFG.loan.step || 1;
         n = Math.round(n / step) * step;
         if (n < CFG.loan.min) n = CFG.loan.min;
@@ -201,18 +199,16 @@
                 return fail("Please accept the Terms & Conditions and Privacy Policy.");
             }
 
-            // No ID number is collected or transmitted.
             var message =
                 "Hi Wethu Micro Lenders, I would like to apply for a loan.\n\n" +
                 "Name: " + name + "\n" +
                 "Contact number: " + phoneRaw + "\n" +
                 "Requested amount: R" + amount.toLocaleString("en-ZA") + "\n\n" +
                 "I understand this is an enquiry and final terms are subject to " +
-                "affordability assessment under the National Credit Act.";
+                "affordability assessment and credit profile under the National Credit Act.";
 
             setText(statusEl, "Opening WhatsApp…");
 
-            // Wipe sensitive fields from memory before navigating.
             if (nameEl) nameEl.value = "";
             if (phoneEl) phoneEl.value = "";
 

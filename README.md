@@ -16,4 +16,12 @@ exchange happen directly between the customer and the admin on WhatsApp.
 - Only three fields are held (in browser memory, momentarily) to construct the
   WhatsApp message: name, SA mobile, requested amount. Nothing is persisted.
 
+## Contacts
+
+| Role | Name | WhatsApp |
+| --- | --- | --- |
+| Main line | Wethu Micro Lenders | 072 324 8511 |
+| Field Operations Officer | Hleziphi Mudau | 082 746 9784 |
+| Sales Agent | Mpendulo Shabangu | +27 65 899 4026 |
+
 ## Project structure

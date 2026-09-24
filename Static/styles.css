@@ -909,3 +909,37 @@ input:focus-visible, [tabindex]:focus-visible {
     .team-photo { width: 120px; height: 120px; }
     .team-cta { padding: 30px 20px; }
 }
+
+/* WhatsApp button inside each team card */
+.team-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 16px;
+    padding: 11px 22px;
+    border-radius: 25px;
+    background: #25D366;
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    box-shadow: 0 6px 18px rgba(37, 211, 102, 0.35);
+    transition: var(--transition-fast);
+    border: none;
+    width: 100%;
+    max-width: 220px;
+}
+
+.team-whatsapp i {
+    font-size: 1.1rem;
+}
+
+.team-whatsapp:hover,
+.team-whatsapp:focus-visible {
+    background: #1ebe5b;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 26px rgba(37, 211, 102, 0.5);
+}
+

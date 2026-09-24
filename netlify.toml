@@ -2,6 +2,7 @@
   publish = "."
   command = ""
 
+# ---------- Security headers (all routes) ----------
 [[headers]]
   for = "/*"
   [headers.values]
@@ -15,6 +16,7 @@
     Cross-Origin-Resource-Policy = "same-origin"
     X-XSS-Protection = "0"
 
+# ---------- Cache immutable assets ----------
 [[headers]]
   for = "/Images/*"
   [headers.values]
@@ -29,3 +31,17 @@
   for = "/Script/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+
+# ---------- security.txt content-type ----------
+[[headers]]
+  for = "/.well-known/security.txt"
+  [headers.values]
+    Content-Type = "text/plain; charset=utf-8"
+    Cache-Control = "public, max-age=3600"
+
+# ---------- Redirect www → apex ----------
+[[redirects]]
+  from = "https://www.wethumicrolenders.co.za/*"
+  to = "https://wethumicrolenders.co.za/:splat"
+  status = 301
+  force = true
