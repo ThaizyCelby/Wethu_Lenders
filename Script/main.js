@@ -216,6 +216,86 @@
         });
     }
 
+        // ---------- Scroll reveal ----------
+    (function initReveal() {
+        var nodes = document.querySelectorAll(".reveal");
+        if (!nodes.length) return;
+
+        if (!("IntersectionObserver" in window)) {
+            nodes.forEach(function (n) { n.classList.add("is-visible"); });
+            return;
+        }
+
+        var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("is-visible");
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { rootMargin: "0px 0px -60px 0px", threshold: 0.08 });
+
+        nodes.forEach(function (n) { observer.observe(n); });
+    })();
+
+    // ---------- Testimonial carousel ----------
+    (function initCarousel() {
+        var carousel = document.querySelector("[data-carousel]");
+        if (!carousel) return;
+
+        var track = carousel.querySelector(".testimonial-track");
+        var slides = carousel.querySelectorAll("[data-slide]");
+        var dotsWrap = carousel.querySelector(".carousel-dots");
+        if (!track || !slides.length || !dotsWrap) return;
+
+        var index = 0;
+        var total = slides.length;
+        var timer = null;
+
+        // Build dots safely (no innerHTML)
+        for (var i = 0; i < total; i++) {
+            var dot = document.createElement("button");
+            dot.type = "button";
+            dot.setAttribute("aria-label", "Show testimonial " + (i + 1));
+            dot.setAttribute("role", "tab");
+            if (i === 0) dot.classList.add("active");
+            dot.addEventListener("click", (function (n) {
+                return function () { go(n); };
+            })(i));
+            dotsWrap.appendChild(dot);
+        }
+
+        var dots = dotsWrap.querySelectorAll("button");
+
+        function go(n) {
+            index = (n + total) % total;
+            track.style.transform = "translateX(-" + (index * 100) + "%)";
+            dots.forEach(function (d, i) {
+                d.classList.toggle("active", i === index);
+            });
+        }
+
+        function start() {
+            stop();
+            timer = window.setInterval(function () {
+                go(index + 1);
+            }, 6000);
+        }
+
+        function stop() {
+            if (timer) { window.clearInterval(timer); timer = null; }
+        }
+
+        carousel.addEventListener("mouseenter", stop);
+        carousel.addEventListener("mouseleave", start);
+        carousel.addEventListener("focusin", stop);
+        carousel.addEventListener("focusout", start);
+
+        // Respect reduced motion
+        var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (!reduce) start();
+    })();
+
     // ---------- Footer year ----------
     document.querySelectorAll("[data-current-year]").forEach(function (el) {
         el.textContent = String(new Date().getFullYear());
