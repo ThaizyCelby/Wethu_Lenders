@@ -1,5 +1,6 @@
 // ==================== Wethu Micro Lenders – Main Script ====================
-// Handles: mobile menu, FAQ accordion, loan calculator, WhatsApp form, back-to-top.
+// Handles: mobile menu, FAQ accordion, loan calculator, WhatsApp form,
+// back-to-top, scroll progress, scroll reveal, testimonial carousel, footer year.
 //
 // Security principles enforced by this file:
 //   - The WhatsApp destination number is hardcoded from WETHU_CONFIG.
@@ -79,27 +80,50 @@
         navLinks.querySelectorAll("a").forEach(function (a) {
             a.addEventListener("click", function () { setMenu(false); });
         });
+        document.addEventListener("keydown", function (e) {
+            if (e.key === "Escape") setMenu(false);
+        });
     }
 
     // ---------- Navbar scroll ----------
     var navbar = document.getElementById("navbar");
-    if (navbar) {
-        window.addEventListener("scroll", function () {
-            navbar.classList.toggle("scrolled", window.scrollY > 50);
-        });
+    var scrollProgress = document.getElementById("scrollProgress");
+    var ticking = false;
+
+    function onScroll() {
+        var y = window.scrollY || window.pageYOffset;
+
+        if (navbar) navbar.classList.toggle("scrolled", y > 50);
+
+        if (backToTop) backToTop.classList.toggle("visible", y > 400);
+
+        if (scrollProgress) {
+            var doc = document.documentElement;
+            var total = (doc.scrollHeight - doc.clientHeight) || 1;
+            var pct = Math.min(100, Math.max(0, (y / total) * 100));
+            scrollProgress.style.width = pct.toFixed(2) + "%";
+        }
+        ticking = false;
     }
+
+    window.addEventListener("scroll", function () {
+        if (!ticking) {
+            window.requestAnimationFrame(onScroll);
+            ticking = true;
+        }
+    }, { passive: true });
 
     // ---------- Back to top ----------
     var backToTop = document.getElementById("backToTop");
     if (backToTop) {
-        window.addEventListener("scroll", function () {
-            backToTop.classList.toggle("visible", window.scrollY > 400);
-        });
         backToTop.addEventListener("click", function (e) {
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: "smooth" });
         });
     }
+
+    // Initial paint (in case user reloads mid-page)
+    onScroll();
 
     // ---------- FAQ accordion ----------
     document.querySelectorAll(".faq-question").forEach(function (button) {
@@ -216,7 +240,7 @@
         });
     }
 
-        // ---------- Scroll reveal ----------
+    // ---------- Scroll reveal ----------
     (function initReveal() {
         var nodes = document.querySelectorAll(".reveal");
         if (!nodes.length) return;
@@ -252,7 +276,6 @@
         var total = slides.length;
         var timer = null;
 
-        // Build dots safely (no innerHTML)
         for (var i = 0; i < total; i++) {
             var dot = document.createElement("button");
             dot.type = "button";
@@ -291,7 +314,6 @@
         carousel.addEventListener("focusin", stop);
         carousel.addEventListener("focusout", start);
 
-        // Respect reduced motion
         var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         if (!reduce) start();
     })();

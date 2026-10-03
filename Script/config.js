@@ -16,7 +16,7 @@ window.WETHU_CONFIG = Object.freeze({
   email:         "Sales@wethumicrolenders.com",
 
   // Site
-  siteUrl:       "https://wethumicrolenders.co.za",
+  siteUrl:       "https://wethuml.co.za",
   address:       "19 Temba Street, Atteridgeville 0125",
 
   // Named contacts (display + WhatsApp deep links)

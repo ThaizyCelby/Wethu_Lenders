@@ -32,6 +32,11 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=300, must-revalidate"
+
 # ---------- security.txt content-type ----------
 [[headers]]
   for = "/.well-known/security.txt"
@@ -39,9 +44,35 @@
     Content-Type = "text/plain; charset=utf-8"
     Cache-Control = "public, max-age=3600"
 
-# ---------- Redirect www → apex ----------
+# ---------- Redirect www → apex (wethuml.co.za) ----------
 [[redirects]]
-  from = "https://www.wethumicrolenders.co.za/*"
-  to = "https://wethumicrolenders.co.za/:splat"
+  from = "https://www.wethuml.co.za/*"
+  to = "https://wethuml.co.za/:splat"
   status = 301
   force = true
+
+# ---------- Pretty URL fallback ----------
+[[redirects]]
+  from = "/apply"
+  to = "/Pages/apply.html"
+  status = 200
+
+[[redirects]]
+  from = "/contact"
+  to = "/Pages/contact.html"
+  status = 200
+
+[[redirects]]
+  from = "/about"
+  to = "/Pages/about.html"
+  status = 200
+
+[[redirects]]
+  from = "/faq"
+  to = "/Pages/faq.html"
+  status = 200
+
+[[redirects]]
+  from = "/team"
+  to = "/Pages/merchandise.html"
+  status = 200
