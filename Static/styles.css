@@ -2,7 +2,6 @@
    WETHU MICRO LENDERS — STYLESHEET
    Palette: navy (trust) + emerald (success) + gold (CTA) + cyan (accent)
    Site background: animated gradient + drifting circles on every page
-   Content cards: soft decorative circles echo the background
    ===================================================================== */
 
 /* ==================== ROOT VARIABLES ==================== */
@@ -142,12 +141,6 @@ body::after {
     0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
     40%      { transform: translate3d(-2.6%, 2%, 0) scale(1.07); }
     75%      { transform: translate3d(2%, -1.6%, 0) scale(1.04); }
-}
-
-/* Gentle pulse for the small decorative circles inside cards */
-@keyframes cardCirclePulse {
-    0%, 100% { opacity: .85; transform: scale(1); }
-    50%      { opacity: 1;   transform: scale(1.05); }
 }
 
 img { max-width: 100%; display: block; }
@@ -732,18 +725,13 @@ main .btn-outline:hover,
     position: relative;
 }
 .trust-item {
-    position: relative;
-    overflow: hidden;
     display: flex;
     align-items: center;
     gap: 14px;
     min-height: 76px;
     padding: 13px 14px;
     border-radius: 17px;
-    background:
-        radial-gradient(circle at 96% 12%, rgba(26, 166, 201, .09), transparent 42%),
-        radial-gradient(circle at 4% 92%, rgba(244, 179, 35, .07), transparent 40%),
-        rgba(255, 255, 255, .92);
+    background: rgba(255, 255, 255, .92);
     border: 1px solid rgba(11, 79, 113, .07);
     box-shadow: var(--shadow-xs);
     transition: var(--transition);
@@ -858,8 +846,6 @@ main .btn-outline:hover,
 /* ==================== ABOUT / WHO WE ARE ==================== */
 .about-container,
 .about-full {
-    position: relative;
-    overflow: hidden;
     display: flex;
     align-items: center;
     gap: clamp(35px, 5vw, 75px);
@@ -867,22 +853,7 @@ main .btn-outline:hover,
     max-width: 1180px;
     margin: 0 auto;
     padding: clamp(28px, 4vw, 44px);
-    background:
-        /* ring, top-right */
-        radial-gradient(circle at 96% 8%,
-            transparent 22%,
-            rgba(26, 166, 201, .10) 22.2%,
-            rgba(26, 166, 201, .10) 22.8%,
-            transparent 23%,
-            transparent 28%,
-            rgba(26, 166, 201, .05) 28.2%,
-            rgba(26, 166, 201, .05) 28.6%,
-            transparent 28.8%),
-        /* soft circle, bottom-left */
-        radial-gradient(circle at 4% 96%, rgba(244, 179, 35, .10), transparent 45%),
-        /* soft circle, mid-right */
-        radial-gradient(circle at 88% 68%, rgba(32, 198, 107, .07), transparent 42%),
-        rgba(255, 255, 255, .90);
+    background: rgba(255, 255, 255, .90);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(11, 79, 113, .07);
@@ -921,13 +892,7 @@ main .btn-outline:hover,
     margin: 0 auto;
 }
 .step-item {
-    position: relative;
-    overflow: hidden;
-    background:
-        radial-gradient(circle at 96% 6%, rgba(26, 166, 201, .12), transparent 46%),
-        radial-gradient(circle at 4% 96%, rgba(244, 179, 35, .10), transparent 42%),
-        radial-gradient(circle at 50% 50%, rgba(32, 198, 107, .04), transparent 55%),
-        rgba(255, 255, 255, .86);
+    background: rgba(255, 255, 255, .86);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     padding: 35px 19px 24px;
@@ -935,8 +900,10 @@ main .btn-outline:hover,
     border: 1px solid rgba(11, 79, 113, .08);
     box-shadow: var(--shadow-xs);
     text-align: center;
+    position: relative;
     min-height: 250px;
     transition: var(--transition);
+    overflow: visible;
 }
 .step-item::after {
     content: '';
@@ -971,7 +938,6 @@ main .btn-outline:hover,
     font-weight: 800;
     font-size: .84rem;
     box-shadow: 0 7px 15px rgba(11, 79, 113, .20);
-    z-index: 2;
 }
 .step-icon {
     width: 66px;
@@ -1004,8 +970,6 @@ main .btn-outline:hover,
     margin: 0 auto;
 }
 .feature-item {
-    position: relative;
-    overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -1015,10 +979,7 @@ main .btn-outline:hover,
     min-height: 225px;
     border-radius: 20px;
     border: 1px solid rgba(11, 79, 113, .07);
-    background:
-        radial-gradient(circle at 98% 6%, rgba(26, 166, 201, .11), transparent 42%),
-        radial-gradient(circle at 2% 98%, rgba(244, 179, 35, .09), transparent 42%),
-        linear-gradient(180deg, rgba(255, 255, 255, .92), rgba(251, 253, 254, .82));
+    background: linear-gradient(180deg, rgba(255, 255, 255, .92), rgba(251, 253, 254, .82));
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     box-shadow: var(--shadow-xs);
@@ -1031,8 +992,6 @@ main .btn-outline:hover,
     border-radius: 999px;
     background: linear-gradient(90deg, var(--accent-cyan), var(--accent-gold));
     transition: width var(--transition);
-    position: relative;
-    z-index: 2;
 }
 .feature-item:hover {
     transform: translateY(-7px);
@@ -1053,8 +1012,6 @@ main .btn-outline:hover,
     font-size: 1.35rem;
     flex-shrink: 0;
     transition: var(--transition);
-    position: relative;
-    z-index: 2;
 }
 .feature-item:nth-child(2) .feature-icon { background: var(--accent-gold-soft); color: var(--accent-gold-dark); }
 .feature-item:nth-child(3) .feature-icon { background: var(--accent-green-soft); color: var(--accent-green-dark); }
@@ -1065,8 +1022,8 @@ main .btn-outline:hover,
 .feature-item:nth-child(2):hover .feature-icon { background: var(--accent-gold); color: #fff; }
 .feature-item:nth-child(3):hover .feature-icon { background: var(--accent-green); color: #fff; }
 
-.feature-item h4 { font-weight: 700; font-size: .98rem; position: relative; z-index: 2; }
-.feature-item p { font-size: .82rem; color: var(--text-gray); line-height: 1.6; position: relative; z-index: 2; }
+.feature-item h4 { font-weight: 700; font-size: .98rem; }
+.feature-item p { font-size: .82rem; color: var(--text-gray); line-height: 1.6; }
 
 /* ==================== LOAN OPTIONS ==================== */
 .loan-options {
@@ -1086,23 +1043,16 @@ main .btn-outline:hover,
     margin: 0 auto;
 }
 .option-card {
-    position: relative;
-    overflow: hidden;
+    background: rgba(255, 255, 255, .90);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     padding: 34px 26px 27px;
     border-radius: 23px;
     border: 1px solid rgba(11, 79, 113, .08);
-    background:
-        /* soft cyan halo behind icon */
-        radial-gradient(circle at 50% 22%, rgba(26, 166, 201, .13), transparent 40%),
-        /* gold corner */
-        radial-gradient(circle at 96% 96%, rgba(244, 179, 35, .10), transparent 42%),
-        /* emerald corner */
-        radial-gradient(circle at 4% 4%, rgba(32, 198, 107, .08), transparent 40%),
-        rgba(255, 255, 255, .90);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
     box-shadow: var(--shadow-xs);
     text-align: center;
+    position: relative;
+    overflow: hidden;
     min-height: 285px;
     transition: var(--transition);
 }
@@ -1117,7 +1067,6 @@ main .btn-outline:hover,
     transform: scaleX(0);
     transform-origin: left;
     transition: transform .4s ease;
-    z-index: 2;
 }
 .option-card:nth-child(2)::before { background: linear-gradient(90deg, var(--accent-green), var(--accent-green-dark)); }
 .option-card:nth-child(3)::before { background: linear-gradient(90deg, var(--accent-gold), var(--accent-coral)); }
@@ -1127,8 +1076,6 @@ main .btn-outline:hover,
     box-shadow: var(--shadow-lg);
 }
 .option-card .card-icon {
-    position: relative;
-    z-index: 2;
     width: 70px;
     height: 70px;
     border-radius: 20px;
@@ -1149,15 +1096,13 @@ main .btn-outline:hover,
 .option-card:nth-child(2):hover .card-icon { background: linear-gradient(145deg, var(--accent-green), var(--accent-green-dark)); color: #fff; transform: translateY(-3px) rotate(-4deg); }
 .option-card:nth-child(3):hover .card-icon { background: linear-gradient(145deg, var(--accent-gold), var(--accent-coral)); color: #fff; transform: translateY(-3px) rotate(-4deg); }
 
-.option-card h3 { margin-bottom: 8px; font-size: 1.1rem; font-weight: 700; position: relative; z-index: 2; }
+.option-card h3 { margin-bottom: 8px; font-size: 1.1rem; font-weight: 700; }
 .option-card p {
     min-height: 74px;
     color: #65747f;
     font-size: .85rem;
     line-height: 1.6;
     margin-bottom: 18px;
-    position: relative;
-    z-index: 2;
 }
 .btn-small {
     display: inline-block;
@@ -1171,8 +1116,6 @@ main .btn-outline:hover,
     border: 1px solid rgba(11, 79, 113, .22);
     transition: var(--transition-fast);
     cursor: pointer;
-    position: relative;
-    z-index: 2;
 }
 .btn-small:hover {
     background: var(--primary-blue);
@@ -1201,13 +1144,8 @@ main .btn-outline:hover,
     flex-wrap: wrap;
 }
 .req-item {
-    position: relative;
-    overflow: hidden;
     text-align: center;
-    background:
-        radial-gradient(circle at 92% 8%, rgba(26, 166, 201, .13), transparent 48%),
-        radial-gradient(circle at 8% 92%, rgba(244, 179, 35, .10), transparent 46%),
-        linear-gradient(145deg, rgba(241, 249, 253, .92), rgba(232, 245, 251, .86));
+    background: linear-gradient(145deg, rgba(241, 249, 253, .92), rgba(232, 245, 251, .86));
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
     border: 1px solid rgba(20, 132, 189, .08);
@@ -1220,10 +1158,7 @@ main .btn-outline:hover,
     transition: var(--transition);
 }
 .req-item:hover {
-    background:
-        radial-gradient(circle at 92% 8%, rgba(255, 255, 255, .18), transparent 48%),
-        radial-gradient(circle at 8% 92%, rgba(244, 179, 35, .20), transparent 46%),
-        linear-gradient(145deg, var(--primary-blue), var(--accent-blue));
+    background: linear-gradient(145deg, var(--primary-blue), var(--accent-blue));
     color: #fff;
     transform: translateY(-6px);
     box-shadow: var(--shadow-md);
@@ -1234,11 +1169,9 @@ main .btn-outline:hover,
     margin-bottom: 11px;
     display: block;
     transition: var(--transition);
-    position: relative;
-    z-index: 2;
 }
 .req-item:hover i { color: #fff; }
-.req-item p { font-weight: 600; font-size: .85rem; position: relative; z-index: 2; }
+.req-item p { font-weight: 600; font-size: .85rem; }
 .req-note {
     color: #697984;
     margin-bottom: 20px;
@@ -1273,11 +1206,7 @@ main .btn-outline:hover,
     padding: 34px;
     border: 1px solid rgba(11, 79, 113, .08);
     border-radius: 28px;
-    background:
-        radial-gradient(circle at 96% 4%, rgba(111, 99, 255, .10), transparent 40%),
-        radial-gradient(circle at 4% 96%, rgba(26, 166, 201, .10), transparent 44%),
-        radial-gradient(circle at 90% 90%, rgba(244, 179, 35, .07), transparent 40%),
-        rgba(255, 255, 255, .94);
+    background: rgba(255, 255, 255, .94);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     box-shadow: var(--shadow-lg);
@@ -1301,8 +1230,6 @@ main .btn-outline:hover,
     display: block;
     font-size: 1rem;
     color: var(--text-dark);
-    position: relative;
-    z-index: 2;
 }
 #amountDisplay,
 #amountDisplayApply {
@@ -1329,8 +1256,6 @@ input[type="range"] {
     appearance: none;
     outline: none;
     cursor: pointer;
-    position: relative;
-    z-index: 2;
 }
 input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
@@ -1360,8 +1285,6 @@ input[type="range"]::-moz-range-thumb {
     display: flex;
     gap: 12px;
     margin-top: 20px;
-    position: relative;
-    z-index: 2;
 }
 .calc-item {
     flex: 1;
@@ -1392,14 +1315,10 @@ input[type="range"]::-moz-range-thumb {
     color: #6d7b84;
     margin: 10px 0 15px;
     line-height: 1.6;
-    position: relative;
-    z-index: 2;
 }
 
 /* ==================== FOUNDER / TEAM ==================== */
 .founder-profile {
-    position: relative;
-    overflow: hidden;
     display: flex;
     gap: 40px;
     align-items: center;
@@ -1409,29 +1328,10 @@ input[type="range"]::-moz-range-thumb {
     padding: 30px;
     border: 1px solid rgba(11, 79, 113, .07);
     border-radius: 28px;
-    background:
-        /* ring, top-right */
-        radial-gradient(circle at 96% 8%,
-            transparent 16%,
-            rgba(26, 166, 201, .11) 16.2%,
-            rgba(26, 166, 201, .11) 16.8%,
-            transparent 17%,
-            transparent 21%,
-            rgba(26, 166, 201, .055) 21.2%,
-            rgba(26, 166, 201, .055) 21.6%,
-            transparent 21.8%),
-        /* gold glow, bottom-right */
-        radial-gradient(circle at 92% 92%, rgba(244, 179, 35, .10), transparent 44%),
-        /* emerald glow, top-left */
-        radial-gradient(circle at 4% 8%, rgba(32, 198, 107, .08), transparent 40%),
-        rgba(255, 255, 255, .90);
+    background: rgba(255, 255, 255, .90);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     box-shadow: var(--shadow-md);
-}
-.founder-photo {
-    position: relative;
-    z-index: 2;
 }
 .founder-photo img {
     width: 245px;
@@ -1443,7 +1343,6 @@ input[type="range"]::-moz-range-thumb {
     transition: transform var(--transition);
 }
 .founder-profile:hover .founder-photo img { transform: scale(1.03); }
-.founder-details { position: relative; z-index: 2; }
 .founder-details h2 { margin-bottom: 10px; }
 .founder-details h3 {
     color: var(--primary-blue);
@@ -1473,17 +1372,13 @@ input[type="range"]::-moz-range-thumb {
     text-align: left;
 }
 .faq-item {
-    position: relative;
-    overflow: hidden;
-    background:
-        radial-gradient(circle at 96% 50%, rgba(26, 166, 201, .10), transparent 42%),
-        radial-gradient(circle at 4% 50%, rgba(244, 179, 35, .07), transparent 40%),
-        rgba(255, 255, 255, .90);
+    background: rgba(255, 255, 255, .90);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(11, 79, 113, .08);
     border-radius: 17px;
     margin-bottom: 12px;
+    overflow: hidden;
     box-shadow: var(--shadow-xs);
     transition: var(--transition-fast);
 }
@@ -1493,8 +1388,6 @@ input[type="range"]::-moz-range-thumb {
     box-shadow: var(--shadow-md);
 }
 .faq-question {
-    position: relative;
-    z-index: 2;
     width: 100%;
     background: none;
     border: none;
@@ -1514,11 +1407,11 @@ input[type="range"]::-moz-range-thumb {
 }
 .faq-question:hover,
 .faq-question:focus-visible {
-    background: linear-gradient(90deg, rgba(243, 250, 255, .8), rgba(255, 255, 255, .6));
+    background: linear-gradient(90deg, #f3faff, #fff);
     color: var(--primary-blue);
 }
 .faq-item.active .faq-question {
-    background: linear-gradient(90deg, rgba(243, 250, 255, .8), rgba(255, 255, 255, .6));
+    background: linear-gradient(90deg, #f3faff, #fff);
     color: var(--primary-blue);
 }
 .faq-question i {
@@ -1535,8 +1428,6 @@ input[type="range"]::-moz-range-thumb {
 }
 .faq-item.active .faq-question i { transform: rotate(45deg); }
 .faq-answer {
-    position: relative;
-    z-index: 2;
     max-height: 0;
     overflow: hidden;
     transition: max-height .4s ease, padding .4s ease;
@@ -1579,24 +1470,19 @@ input[type="range"]::-moz-range-thumb {
     pointer-events: none;
 }
 .apply-card {
-    position: relative;
     max-width: 740px;
     margin: 0 auto;
-    background:
-        radial-gradient(circle at 96% 96%, rgba(26, 166, 201, .09), transparent 42%),
-        radial-gradient(circle at 4% 4%, rgba(244, 179, 35, .08), transparent 42%),
-        rgba(255, 255, 255, .96);
+    background: rgba(255, 255, 255, .96);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(11, 79, 113, .09);
     border-radius: 30px;
     box-shadow: var(--shadow-lg);
     overflow: hidden;
+    position: relative;
     z-index: 1;
 }
 .apply-card-header {
-    position: relative;
-    overflow: hidden;
     background: linear-gradient(135deg, var(--primary-blue-dark), var(--primary-blue));
     color: #fff;
     padding: 22px 27px;
@@ -1605,23 +1491,7 @@ input[type="range"]::-moz-range-thumb {
     align-items: center;
     gap: 14px;
 }
-.apply-card-header::after {
-    content: '';
-    position: absolute;
-    width: 180px;
-    height: 180px;
-    top: -90px;
-    right: -50px;
-    border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, .10);
-    box-shadow:
-        0 0 0 30px rgba(255, 255, 255, .025),
-        0 0 0 60px rgba(255, 255, 255, .018);
-    pointer-events: none;
-}
 .apply-card-header i {
-    position: relative;
-    z-index: 2;
     width: 42px;
     height: 42px;
     display: grid;
@@ -1630,9 +1500,8 @@ input[type="range"]::-moz-range-thumb {
     background: rgba(255, 255, 255, .12);
     font-size: 1.15rem;
 }
-.apply-card-header h3 { position: relative; z-index: 2; font-size: 1.1rem; font-weight: 700; margin: 0; }
+.apply-card-header h3 { font-size: 1.1rem; font-weight: 700; margin: 0; }
 .apply-card-body {
-    position: relative;
     padding: 26px;
     text-align: center;
 }
@@ -1642,15 +1511,11 @@ input[type="range"]::-moz-range-thumb {
     color: var(--text-gray);
     font-size: .9rem;
     line-height: 1.55;
-    position: relative;
-    z-index: 2;
 }
 .whatsapp-btn {
     min-width: 230px;
     background: linear-gradient(135deg, #1bb963, #25d366) !important;
     box-shadow: 0 13px 28px rgba(32, 198, 107, .22) !important;
-    position: relative;
-    z-index: 2;
 }
 .whatsapp-btn:hover {
     background: linear-gradient(135deg, #159b50, #20c66b) !important;
@@ -1667,8 +1532,6 @@ input[type="range"]::-moz-range-thumb {
     justify-content: center;
     gap: 8px;
     flex-wrap: wrap;
-    position: relative;
-    z-index: 2;
 }
 .apply-note i { color: var(--primary-blue); }
 
@@ -1721,14 +1584,10 @@ input[type="range"]::-moz-range-thumb {
 }
 .contact-card {
     position: relative;
-    overflow: hidden;
     min-height: 140px;
     padding: 25px 18px;
     border-radius: 20px;
-    background:
-        radial-gradient(circle at 96% 8%, rgba(75, 177, 223, .12), transparent 42%),
-        radial-gradient(circle at 4% 92%, rgba(244, 179, 35, .08), transparent 42%),
-        rgba(255, 255, 255, .075);
+    background: rgba(255, 255, 255, .075);
     border: 1px solid rgba(255, 255, 255, .13);
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, .06);
     backdrop-filter: blur(8px);
@@ -1740,17 +1599,12 @@ input[type="range"]::-moz-range-thumb {
     transition: var(--transition);
 }
 .contact-card:hover {
-    background:
-        radial-gradient(circle at 96% 8%, rgba(75, 177, 223, .20), transparent 44%),
-        radial-gradient(circle at 4% 92%, rgba(244, 179, 35, .14), transparent 44%),
-        rgba(255, 255, 255, .13);
+    background: rgba(255, 255, 255, .13);
     border-color: rgba(255, 255, 255, .22);
     transform: translateY(-6px);
     box-shadow: 0 14px 34px rgba(0, 0, 0, .22);
 }
 .contact-card i {
-    position: relative;
-    z-index: 2;
     width: 48px;
     height: 48px;
     display: inline-grid;
@@ -1761,10 +1615,8 @@ input[type="range"]::-moz-range-thumb {
     background: rgba(255, 255, 255, .11);
     font-size: 1.2rem;
 }
-.contact-card h4 { position: relative; z-index: 2; font-weight: 700; margin-bottom: 4px; font-size: .98rem; }
+.contact-card h4 { font-weight: 700; margin-bottom: 4px; font-size: .98rem; }
 .contact-card span {
-    position: relative;
-    z-index: 2;
     font-size: .79rem;
     opacity: .9;
     word-break: break-word;
@@ -1776,10 +1628,7 @@ input[type="range"]::-moz-range-thumb {
     margin: 10px auto 0;
     padding: 29px 24px;
     border: 1px solid rgba(255, 255, 255, .28);
-    background:
-        radial-gradient(circle at 96% 8%, rgba(75, 177, 223, .20), transparent 44%),
-        radial-gradient(circle at 4% 92%, rgba(32, 198, 107, .12), transparent 44%),
-        linear-gradient(145deg, rgba(255, 255, 255, .17), rgba(255, 255, 255, .09));
+    background: linear-gradient(145deg, rgba(255, 255, 255, .17), rgba(255, 255, 255, .09));
     box-shadow: 0 20px 40px rgba(0, 0, 0, .15);
 }
 .contact-card.phone-card i {
@@ -1793,7 +1642,7 @@ input[type="range"]::-moz-range-thumb {
     font-weight: 700;
     letter-spacing: .5px;
 }
-.contact-note { position: relative; z-index: 2; font-size: .8rem; opacity: .75; margin-top: 6px; }
+.contact-note { font-size: .8rem; opacity: .75; margin-top: 6px; }
 @keyframes pulsePhone {
     0%, 100% { transform: scale(1); }
     15% { transform: scale(1.06); }
@@ -1841,24 +1690,8 @@ input[type="range"]::-moz-range-thumb {
     flex-wrap: wrap;
     position: relative;
     z-index: 2;
-    overflow: hidden;
     box-shadow: 0 -12px 35px rgba(8, 51, 73, .10);
 }
-.footer-cta::before {
-    content: '';
-    position: absolute;
-    width: 220px;
-    height: 220px;
-    top: -110px;
-    right: -80px;
-    border-radius: 50%;
-    border: 1px solid rgba(75, 177, 223, .14);
-    box-shadow:
-        0 0 0 30px rgba(75, 177, 223, .03),
-        0 0 0 60px rgba(75, 177, 223, .02);
-    pointer-events: none;
-}
-.footer-cta > * { position: relative; z-index: 2; }
 .footer-cta h2 {
     font-size: clamp(1.5rem, 3vw, 2rem);
     font-weight: 800;
@@ -2072,23 +1905,18 @@ footer::after {
 
 /* ==================== WHATSAPP FORM ==================== */
 .whatsapp-form {
-    position: relative;
     max-width: 760px;
     margin: 0 auto;
     padding: clamp(22px, 4vw, 34px);
     border: 1px solid rgba(11, 79, 113, .08);
     border-radius: 25px;
-    background:
-        radial-gradient(circle at 96% 4%, rgba(26, 166, 201, .10), transparent 42%),
-        radial-gradient(circle at 4% 96%, rgba(244, 179, 35, .08), transparent 42%),
-        rgba(255, 255, 255, .94);
+    background: rgba(255, 255, 255, .94);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     box-shadow: var(--shadow-md);
     text-align: left;
-    overflow: hidden;
 }
-.form-group { position: relative; margin-bottom: 18px; z-index: 2; }
+.form-group { margin-bottom: 18px; }
 .form-group label {
     display: block;
     margin-bottom: 7px;
@@ -2135,8 +1963,6 @@ footer::after {
     text-decoration: underline;
 }
 .form-status {
-    position: relative;
-    z-index: 2;
     margin-top: 12px;
     font-size: .9rem;
     color: var(--primary-blue);
@@ -2155,15 +1981,10 @@ footer::after {
     text-align: left;
 }
 .legal-content {
-    position: relative;
-    overflow: hidden;
     padding: clamp(25px, 5vw, 45px);
     border: 1px solid rgba(11, 79, 113, .08);
     border-radius: 25px;
-    background:
-        radial-gradient(circle at 96% 4%, rgba(26, 166, 201, .08), transparent 42%),
-        radial-gradient(circle at 4% 96%, rgba(244, 179, 35, .07), transparent 42%),
-        rgba(255, 255, 255, .94);
+    background: rgba(255, 255, 255, .94);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     box-shadow: var(--shadow-md);
@@ -2173,24 +1994,18 @@ footer::after {
     margin-bottom: 9px;
     font-size: 1.3rem;
     color: var(--primary-blue-dark);
-    position: relative;
-    z-index: 2;
 }
 .legal-content p {
     margin-bottom: 15px;
     color: #61717c;
     font-size: .9rem;
     line-height: 1.78;
-    position: relative;
-    z-index: 2;
 }
 .legal-content ol {
     margin: 0 0 15px 20px;
     color: #61717c;
     line-height: 1.78;
     font-size: .9rem;
-    position: relative;
-    z-index: 2;
 }
 .legal-content ol li { margin-bottom: 8px; }
 .legal-content a { color: var(--primary-blue); }
@@ -2217,12 +2032,7 @@ footer::after {
     margin: 0 auto 60px;
 }
 .team-card {
-    position: relative;
-    overflow: hidden;
-    background:
-        radial-gradient(circle at 96% 4%, rgba(26, 166, 201, .10), transparent 42%),
-        radial-gradient(circle at 4% 96%, rgba(244, 179, 35, .08), transparent 42%),
-        rgba(255, 255, 255, .90);
+    background: rgba(255, 255, 255, .90);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(11, 79, 113, .08);
@@ -2238,8 +2048,6 @@ footer::after {
     box-shadow: var(--shadow-lg);
 }
 .team-photo {
-    position: relative;
-    z-index: 2;
     width: 100%;
     max-width: 220px;
     aspect-ratio: 3 / 4;
@@ -2253,8 +2061,6 @@ footer::after {
     background: var(--light-blue);
 }
 .team-name {
-    position: relative;
-    z-index: 2;
     margin-top: 18px;
     font-size: 1rem;
     font-weight: 800;
@@ -2262,8 +2068,6 @@ footer::after {
     margin-bottom: 4px;
 }
 .team-role {
-    position: relative;
-    z-index: 2;
     color: var(--accent-blue);
     font-size: .75rem;
     font-weight: 700;
@@ -2272,8 +2076,6 @@ footer::after {
     margin-bottom: 14px;
 }
 .team-bio {
-    position: relative;
-    z-index: 2;
     color: #697985;
     font-size: .79rem;
     line-height: 1.65;
@@ -2281,21 +2083,15 @@ footer::after {
     text-align: left;
 }
 .team-cta {
-    position: relative;
-    overflow: hidden;
     max-width: 620px;
     margin: 0 auto;
     padding: 40px 30px;
-    background:
-        radial-gradient(circle at 96% 8%, rgba(26, 166, 201, .12), transparent 44%),
-        radial-gradient(circle at 4% 92%, rgba(244, 179, 35, .10), transparent 44%),
-        rgba(245, 249, 252, .78);
+    background: rgba(245, 249, 252, .78);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     border-radius: var(--radius-lg);
     border: 1px solid var(--border-light);
 }
-.team-cta > * { position: relative; z-index: 2; }
 .team-cta h2 {
     font-size: 1.4rem;
     font-weight: 800;
@@ -2326,8 +2122,6 @@ footer::after {
     border: none;
     width: 100%;
     max-width: 220px;
-    position: relative;
-    z-index: 2;
 }
 .team-whatsapp i { font-size: 1.1rem; }
 .team-whatsapp:hover,
@@ -2607,4 +2401,278 @@ input:focus-visible,
     .team-whatsapp { max-width: 100%; }
     .about-full,
     .about-container { padding: 18px; }
+}
+
+/* =====================================================================
+   ANIMATED CIRCLE ACCENTS FOR CONTENT / TEXT BOXES
+   Mirrors the site's drifting-circle background without interfering
+   with existing hover bars, icons, buttons, or FAQ interactions.
+   ===================================================================== */
+
+.about-container,
+.about-full,
+.trust-item,
+.step-item,
+.feature-item,
+.option-card,
+.req-item,
+.calculator-card,
+.calc-item,
+.founder-profile,
+.faq-item,
+.apply-card,
+.contact-card,
+.whatsapp-form,
+.legal-content,
+.team-card,
+.team-cta {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Put box content above the animated decoration. */
+.about-container > *,
+.about-full > *,
+.trust-item > *,
+.step-item > *,
+.feature-item > *,
+.option-card > *,
+.req-item > *,
+.calculator-card > *,
+.calc-item > *,
+.founder-profile > *,
+.faq-item > *,
+.apply-card > *,
+.contact-card > *,
+.whatsapp-form > *,
+.legal-content > *,
+.team-card > *,
+.team-cta > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Boxes that do not already use both pseudo-elements. */
+.about-container::before,
+.about-full::before,
+.trust-item::before,
+.step-item::before,
+.feature-item::after,
+.option-card::after,
+.req-item::before,
+.founder-profile::before,
+.faq-item::before,
+.apply-card::before,
+.contact-card::before,
+.whatsapp-form::before,
+.legal-content::before,
+.team-card::before,
+.team-cta::before {
+    content: '';
+    position: absolute;
+    inset: -18%;
+    z-index: 0;
+    pointer-events: none;
+    opacity: .62;
+    background:
+        radial-gradient(circle at 12% 18%,
+            rgba(26, 166, 201, .13) 0 16px,
+            transparent 17px 30px,
+            rgba(26, 166, 201, .07) 31px 33px,
+            transparent 34px),
+        radial-gradient(circle at 88% 16%,
+            transparent 0 26px,
+            rgba(20, 132, 189, .10) 27px 29px,
+            transparent 30px),
+        radial-gradient(circle at 82% 78%,
+            rgba(32, 198, 107, .09) 0 34px,
+            transparent 35px 51px,
+            rgba(32, 198, 107, .055) 52px 54px,
+            transparent 55px),
+        radial-gradient(circle at 18% 86%,
+            transparent 0 20px,
+            rgba(244, 179, 35, .10) 21px 23px,
+            transparent 24px),
+        radial-gradient(circle at 55% 42%,
+            rgba(111, 99, 255, .055) 0 22px,
+            transparent 23px);
+    filter: blur(.15px);
+    animation: boxCircleFloat 19s ease-in-out infinite;
+}
+
+/* Give the individual cards slightly different movement so the page
+   does not look mechanically synchronized. */
+.trust-item:nth-child(2)::before,
+.step-item:nth-child(2)::before,
+.feature-item:nth-child(2)::after,
+.option-card:nth-child(2)::after,
+.req-item:nth-child(2)::before,
+.team-card:nth-child(2)::before {
+    animation-delay: -4s;
+    animation-duration: 22s;
+}
+
+.trust-item:nth-child(3)::before,
+.step-item:nth-child(3)::before,
+.feature-item:nth-child(3)::after,
+.option-card:nth-child(3)::after,
+.req-item:nth-child(3)::before,
+.team-card:nth-child(3)::before {
+    animation-delay: -8s;
+    animation-duration: 25s;
+}
+
+.trust-item:nth-child(4)::before,
+.step-item:nth-child(4)::before,
+.feature-item:nth-child(4)::after,
+.team-card:nth-child(4)::before {
+    animation-delay: -12s;
+    animation-duration: 28s;
+}
+
+/* Keep the calculator's existing purple corner orb, while adding
+   the same circular motion language around it. */
+.calculator-card::before {
+    width: auto;
+    height: auto;
+    inset: -16%;
+    right: auto;
+    top: auto;
+    border-radius: 0;
+    background:
+        radial-gradient(circle at 88% 10%,
+            rgba(111, 99, 255, .11) 0 38px,
+            transparent 39px 64px,
+            rgba(111, 99, 255, .07) 65px 67px,
+            transparent 68px),
+        radial-gradient(circle at 13% 22%,
+            transparent 0 22px,
+            rgba(26, 166, 201, .09) 23px 25px,
+            transparent 26px),
+        radial-gradient(circle at 82% 78%,
+            rgba(32, 198, 107, .07) 0 30px,
+            transparent 31px),
+        radial-gradient(circle at 18% 88%,
+            transparent 0 18px,
+            rgba(244, 179, 35, .10) 19px 21px,
+            transparent 22px);
+    animation: boxCircleFloat 21s ease-in-out infinite;
+}
+
+/* Calculation result boxes receive a lighter, tighter animation. */
+.calc-item::before {
+    content: '';
+    position: absolute;
+    inset: -25%;
+    z-index: 0;
+    pointer-events: none;
+    border-radius: inherit;
+    background:
+        radial-gradient(circle at 14% 25%,
+            rgba(20, 132, 189, .10) 0 20px,
+            transparent 21px),
+        radial-gradient(circle at 86% 74%,
+            transparent 0 24px,
+            rgba(26, 166, 201, .10) 25px 27px,
+            transparent 28px);
+    animation: calcCircleFloat 14s ease-in-out infinite;
+}
+
+.calc-item:last-child::before {
+    background:
+        radial-gradient(circle at 14% 25%,
+            rgba(32, 198, 107, .10) 0 20px,
+            transparent 21px),
+        radial-gradient(circle at 86% 74%,
+            transparent 0 24px,
+            rgba(32, 198, 107, .09) 25px 27px,
+            transparent 28px);
+}
+
+/* Dark contact cards use brighter but still restrained circles. */
+.contact-card::before {
+    opacity: .48;
+    background:
+        radial-gradient(circle at 14% 18%,
+            rgba(127, 220, 255, .16) 0 18px,
+            transparent 19px 35px,
+            rgba(127, 220, 255, .08) 36px 38px,
+            transparent 39px),
+        radial-gradient(circle at 88% 20%,
+            transparent 0 28px,
+            rgba(255, 255, 255, .10) 29px 31px,
+            transparent 32px),
+        radial-gradient(circle at 82% 78%,
+            rgba(32, 198, 107, .12) 0 32px,
+            transparent 33px),
+        radial-gradient(circle at 18% 84%,
+            transparent 0 21px,
+            rgba(244, 179, 35, .12) 22px 24px,
+            transparent 25px);
+    animation-duration: 23s;
+}
+
+.contact-card.phone-card::before {
+    opacity: .55;
+    animation-duration: 18s;
+}
+
+/* Buttons remain clean; no animated circles are placed inside them. */
+.btn-primary,
+.btn-outline,
+.btn-white,
+.btn-small,
+.team-whatsapp,
+.btn-apply-nav {
+    isolation: isolate;
+}
+
+@keyframes boxCircleFloat {
+    0%, 100% {
+        transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+    }
+    25% {
+        transform: translate3d(2.5%, -1.8%, 0) scale(1.035) rotate(.8deg);
+    }
+    50% {
+        transform: translate3d(-1.8%, 2.4%, 0) scale(1.065) rotate(-.7deg);
+    }
+    75% {
+        transform: translate3d(1.4%, 1.2%, 0) scale(1.025) rotate(.45deg);
+    }
+}
+
+@keyframes calcCircleFloat {
+    0%, 100% {
+        transform: translate3d(0, 0, 0) scale(1);
+        opacity: .72;
+    }
+    50% {
+        transform: translate3d(-3%, 3%, 0) scale(1.08);
+        opacity: 1;
+    }
+}
+
+/* Accessibility: respect users who request reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+    .about-container::before,
+    .about-full::before,
+    .trust-item::before,
+    .step-item::before,
+    .feature-item::after,
+    .option-card::after,
+    .req-item::before,
+    .calculator-card::before,
+    .calc-item::before,
+    .founder-profile::before,
+    .faq-item::before,
+    .apply-card::before,
+    .contact-card::before,
+    .whatsapp-form::before,
+    .legal-content::before,
+    .team-card::before,
+    .team-cta::before {
+        animation: none !important;
+        transform: none !important;
+    }
 }
